@@ -13,7 +13,7 @@ namespace Filmary.DAL.Models
         /// <summary>
         /// Name
         /// </summary>
-        public string Name { get; set; }
+        public string CompilationName { get; set; }
 
         /// <summary>
         /// ProfileId

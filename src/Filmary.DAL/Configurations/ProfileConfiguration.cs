@@ -3,8 +3,6 @@ using Filmary.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Filmary.DAL.Configurations
 {
@@ -28,7 +26,7 @@ namespace Filmary.DAL.Configurations
                 .IsRequired()
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-           
+
             builder.HasOne(profile => profile.User)
                 .WithOne(user => user.Profile)
                 .HasForeignKey<Profile>(profile => profile.UserId)

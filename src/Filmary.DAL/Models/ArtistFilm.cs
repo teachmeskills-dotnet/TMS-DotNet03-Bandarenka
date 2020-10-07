@@ -20,7 +20,7 @@ namespace Filmary.DAL.Models
         /// <summary>
         /// Films identifier.
         /// </summary>
-        public int FilmsId { get; set; }
+        public int FilmId { get; set; }
 
         /// <summary>
         /// Navigation to Films.

@@ -1,4 +1,5 @@
 ﻿using Filmary.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Filmary.DAL.Models
@@ -16,7 +17,7 @@ namespace Filmary.DAL.Models
         /// <summary>
         /// Year
         /// </summary>
-        public string Year { get; set; }
+        public DateTime Year { get; set; }
 
         /// <summary>
         /// Scenario
@@ -36,7 +37,7 @@ namespace Filmary.DAL.Models
         /// <summary>
         /// Premiere
         /// </summary>
-        public string Premiere { get; set; }
+        public DateTime Premiere { get; set; }
 
         /// <summary>
         /// Duration

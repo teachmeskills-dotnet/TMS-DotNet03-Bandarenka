@@ -13,7 +13,7 @@
         /// <summary>
         /// compilation.
         /// </summary>
-        public const string compilation = nameof(compilation);
+        public const string Compilation = nameof(Compilation);
 
         /// <summary>
         /// Status.
@@ -23,7 +23,7 @@
         /// <summary>
         /// compilationFilm.
         /// </summary>
-        public const string compilationFilm = nameof(compilationFilm);
+        public const string CompilationFilm = nameof(CompilationFilm);
 
         /// <summary>
         /// Films.
@@ -60,6 +60,14 @@
         /// </summary>
         public const string Country = nameof(Country);
 
+        /// <summary>
+        /// Producer.
+        /// </summary>
+        public const string Producer = nameof(Producer);
 
+        /// <summary>
+        /// ProducerFilm.
+        /// </summary>
+        public const string ProducerFilm = nameof(ProducerFilm);
     }
 }
