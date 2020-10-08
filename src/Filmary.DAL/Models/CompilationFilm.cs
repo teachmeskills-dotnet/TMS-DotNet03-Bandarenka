@@ -10,7 +10,7 @@ namespace Filmary.DAL.Models
         /// <inheritdoc/>
         public int Id { get; set; }
         /// <inheritdoc/>
-        public string CompilationId { get; set; }
+        public int CompilationId { get; set; }
 
         /// <summary>
         /// Navigation to Compilation
@@ -18,7 +18,7 @@ namespace Filmary.DAL.Models
         public Compilation Compilation { get; set; }
 
         /// <inheritdoc/>
-        public string FilmId { get; set; }
+        public int FilmId { get; set; }
 
         /// <summary>
         /// Navigation to Films
