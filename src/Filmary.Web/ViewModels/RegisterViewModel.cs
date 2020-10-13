@@ -18,14 +18,14 @@ namespace Filmary.Web.ViewModels
         /// Phone number
         /// </summary>
         [Required]
-        [Display(Name = "Номер телефона")]
+        [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
 
         /// <summary>
         /// User name
         /// </summary>
         [Required]
-        [Display(Name = "Имя пользователя")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
 
         /// <summary>
@@ -33,16 +33,16 @@ namespace Filmary.Web.ViewModels
         /// </summary>
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         /// <summary>
         /// Confirm password
         /// </summary>
         [Required]
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+        [Compare("Password", ErrorMessage = "Password do not match")]
         [DataType(DataType.Password)]
-        [Display(Name = "Подтвердить пароль")]
+        [Display(Name = "Confirm password")]
         public string PasswordConfirm { get; set; }
     }
 }

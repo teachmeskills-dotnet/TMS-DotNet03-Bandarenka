@@ -20,15 +20,9 @@ namespace Filmary.DAL.Models
         public User User { get; set; }
 
         /// <summary>
-        /// name
+        /// FullName
         /// </summary>
-        public string Name { get; set; }
-
-
-        /// <summary>
-        /// Profile email.
-        /// </summary>
-        public string Email { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
         /// Navigation to Compilation
