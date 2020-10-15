@@ -1,25 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Filmary.Web.ViewModels
+
+
 {
+    /// <summary>
+    /// Login view model.
+    /// </summary>
     public class LoginViewModel
     {
+        /// <summary>
+        /// Username.
+        /// </summary>
         [Required]
-        [Display(Name = "Login")]
-        public string UserName { get; set; }
+        [Display(Name = nameof(Username))]
+        public string Username { get; set; }
 
+        /// <summary>
+        /// Password.
+        /// </summary>
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = nameof(Password))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember?")]
+        // TODO: replace to constants
+        /// <summary>
+        /// Remember me.
+        /// </summary>
+        [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
 
+        /// <summary>
+        /// Return url.
+        /// </summary>
         public string ReturnUrl { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace Filmary.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { Email = model.Email, PhoneNumber = model.PhoneNumber, UserName = model.UserName };
+                var user = new User { Email = model.Email, UserName = model.Username };
 
                 // add user
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -63,7 +63,7 @@ namespace Filmary.Web.Controllers
             if (ModelState.IsValid)
             {
                 var result =
-                    await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+                    await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
@@ -77,7 +77,7 @@ namespace Filmary.Web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Incorrect username anr (or) password");
+                    ModelState.AddModelError("", "Incorrect username and (or) password");
                 }
             }
             return View(model);

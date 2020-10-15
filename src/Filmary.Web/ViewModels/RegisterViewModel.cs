@@ -1,48 +1,42 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace Filmary.Web.ViewModels
+
 {
     /// <summary>
-    /// Register model
+    /// Register view model.
     /// </summary>
     public class RegisterViewModel
-    {
-        /// <summary>
-        /// Email
-        /// </summary>
-        [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+{
+    /// <summary>
+    /// Email.
+    /// </summary>
+    [Required]
+    [Display(Name = nameof(Email))]
+    public string Email { get; set; }
 
-        /// <summary>
-        /// Phone number
-        /// </summary>
-        [Required]
-        [Display(Name = "Phone number")]
-        public string PhoneNumber { get; set; }
+    /// <summary>
+    /// Username.
+    /// </summary>
+    [Required]
+    [Display(Name = nameof(Username))]
+    public string Username { get; set; }
 
-        /// <summary>
-        /// User name
-        /// </summary>
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+    /// <summary>
+    /// Password.
+    /// </summary>
+    [Required]
+    [DataType(DataType.Password)]
+    [Display(Name = nameof(Password))]
+    public string Password { get; set; }
 
-        /// <summary>
-        /// Password
-        /// </summary>
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        /// <summary>
-        /// Confirm password
-        /// </summary>
-        [Required]
-        [Compare("Password", ErrorMessage = "Password do not match")]
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        public string PasswordConfirm { get; set; }
-    }
+    /// <summary>
+    /// Password confirm.
+    /// </summary>
+    [Required]
+    [Compare(nameof(Password), ErrorMessage = "Passwords are different")]
+    [DataType(DataType.Password)]
+    [Display(Name = "Confirm your password")]
+    public string PasswordConfirm { get; set; }
+}
 }
