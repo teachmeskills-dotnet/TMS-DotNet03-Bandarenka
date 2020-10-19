@@ -11,7 +11,9 @@
     <header>
         <div class="wrapper">
             <div class="header header__indent-bottom">
+
                 <div class="logo">FILMARY</div>
+                <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Изменить</a>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <div class="auth">

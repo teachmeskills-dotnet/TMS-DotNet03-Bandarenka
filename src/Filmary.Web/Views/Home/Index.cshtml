@@ -29,7 +29,7 @@
         <a class="button button__link" asp-controller="Todo" asp-action="Index">Go to todos</a>
     }*@
 
-@if (User.Identity.IsAuthenticated)
+@*@if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>
 
@@ -43,5 +43,4 @@
 else
 {
     <a asp-controller="Account" asp-action="Login">Войти</a>
-    <a asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
-}
+    <a asp-controller="Account" asp-action="Register">Зарегистрироваться</a>*@

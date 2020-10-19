@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace Filmary.Common
+namespace Filmary.Context
 {
     public class FilmaryDbContext : IdentityDbContext<User>
     {

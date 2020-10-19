@@ -94,7 +94,23 @@ namespace Filmary.Web.Controllers
         }
 
         /// <summary>
-        /// Change passord
+        /// Change password model
+        /// </summary>
+        /// <returns>User model</returns>
+        public async Task<IActionResult> ChangePassword()
+        {
+            var username = HttpContext.User.Identity.Name;
+            User user = await _userManager.FindByNameAsync(username);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            ChangePasswordModel model = new ChangePasswordModel { Id = user.Id, UserName = user.UserName };
+            return View(model);
+        }
+
+        /// <summary>
+        /// Change password
         /// </summary>
         /// <param name="model"></param>
         /// <returns>Change password result</returns>
@@ -129,5 +145,6 @@ namespace Filmary.Web.Controllers
             }
             return View(model);
         }
+
     }
 }

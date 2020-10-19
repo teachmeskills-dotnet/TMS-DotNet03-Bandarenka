@@ -9,8 +9,4 @@
     <ProjectReference Include="..\Filmary.DAL\Filmary.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
