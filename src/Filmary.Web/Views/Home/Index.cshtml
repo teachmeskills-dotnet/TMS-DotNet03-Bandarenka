@@ -6,25 +6,42 @@
 
 
 @*@if (User.Identity.IsAuthenticated)
+    {
+        <p>@User.Identity.Name</p>
+
+        <form method="post" asp-controller="Account" asp-action="Logout">
+            <button type="submit">Exit</button>
+        </form>
+    }
+    else
+    {
+        <a asp-controller="Account" asp-action="Login">Login</a>
+        <a asp-controller="Account" asp-action="Register">Register</a>
+
+    }@{
+        ViewData["Title"] = "Index page";
+    }
+
+    <h1 style="margin-bottom: 8px">Welcome!</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="button button__link" asp-controller="Todo" asp-action="Index">Go to todos</a>
+    }*@
+
+@if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>
 
+    <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Изменить</a>
+
+
     <form method="post" asp-controller="Account" asp-action="Logout">
-        <button type="submit">Exit</button>
+        <button type="submit">Выход</button>
     </form>
 }
 else
 {
-    <a asp-controller="Account" asp-action="Login">Login</a>
-    <a asp-controller="Account" asp-action="Register">Register</a>
-
-}@{
-    ViewData["Title"] = "Index page";
+    <a asp-controller="Account" asp-action="Login">Войти</a>
+    <a asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
 }
-
-<h1 style="margin-bottom: 8px">Welcome!</h1>
-
-@if (User.Identity.IsAuthenticated)
-{
-    <a class="button button__link" asp-controller="Todo" asp-action="Index">Go to todos</a>
-}*@
