@@ -1,4 +1,4 @@
-﻿namespace Filmary.DAL.Models
+﻿namespace Filmary.BLL.Models
 {     /// <summary>
       /// Transport model from groupeprofile
       /// </summary>

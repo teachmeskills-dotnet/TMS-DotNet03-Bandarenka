@@ -1,4 +1,5 @@
-﻿using Filmary.DAL.Models;
+﻿using Filmary.BLL.Interfaces;
+using Filmary.DAL.Models;
 using Filmary.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ namespace Filmary.Web.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IProfileService _profileService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IProfileService profileService)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
+            _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
         }
 
         [HttpGet]

@@ -11,14 +11,14 @@ namespace Filmary.Web.ViewModels
     /// <summary>
     /// Email.
     /// </summary>
-    [Required]
+    [Required(ErrorMessage = "Не указан Email")]
     [Display(Name = nameof(Email))]
     public string Email { get; set; }
 
     /// <summary>
     /// Username.
     /// </summary>
-    [Required]
+    [Required(ErrorMessage = "Не указано Имя пользователя")]
     [Display(Name = nameof(Username))]
     public string Username { get; set; }
 
