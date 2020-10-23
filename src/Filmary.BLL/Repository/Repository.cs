@@ -1,4 +1,4 @@
-﻿using DebtTracker.Common.Interfaces;
+﻿using Filmary.Common.Interfaces;
 using Filmary.Context;
 using Microsoft.EntityFrameworkCore;
 using System;

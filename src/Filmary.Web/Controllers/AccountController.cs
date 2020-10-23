@@ -1,4 +1,5 @@
 ﻿using Filmary.BLL.Interfaces;
+using Filmary.BLL.Models;
 using Filmary.DAL.Models;
 using Filmary.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -38,6 +39,13 @@ namespace Filmary.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    var profile = new Profiledto()
+                    {
+                        UserId = user.Id
+                    };
+
+                    await _profileService.AddAsync(profile);
                     // add cookies
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");

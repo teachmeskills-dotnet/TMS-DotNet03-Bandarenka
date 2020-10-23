@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace DebtTracker.Common.Interfaces
+namespace Filmary.Common.Interfaces
 {
     /// <summary>
     /// Generic repository provide all base needed methods (CRUD)

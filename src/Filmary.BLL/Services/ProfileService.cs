@@ -1,7 +1,6 @@
-﻿using DebtTracker.Common.Interfaces;
+﻿using Filmary.Common.Interfaces;
 using Filmary.BLL.Interfaces;
 using Filmary.BLL.Models;
-using Filmary.Common.Interfaces;
 using Filmary.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -28,7 +27,7 @@ namespace Filmary.BLL.Services
             {
                 UserId = profile.UserId,
                 FullName = profile.FullName,
-              
+
             };
 
             await _repository.AddAsync(userProfile);
@@ -67,7 +66,7 @@ namespace Filmary.BLL.Services
             {
                 UserId = profileDataModel.UserId,
                 FullName = profileDataModel.FullName,
-               
+
             };
             profile.Id = profileDataModel.Id;
             return profile;

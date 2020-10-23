@@ -1,0 +1,49 @@
+﻿a {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.description {
+    margin-bottom: 30px;
+}
+
+.overview {
+    display: block;
+    margin-top: 20px;
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.item {
+    margin: 0;
+    text-align: center;
+}
+
+.Filmary {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #188348;
+}
+
+.spinner {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    border-top: solid 5px #000;
+    border-bottom: solid 5px #000;
+    border-left: solid 5px #fff;
+    border-right: solid 5px #fff;
+    border-radius: 50%;
+    animation: spin 500ms linear;
+    animation-iteration-count: infinite;
+}

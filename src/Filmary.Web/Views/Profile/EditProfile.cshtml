@@ -1,0 +1,13 @@
+﻿@model ProfileViewModel
+
+
+<form method="post" asp-controller="Profile" asp-action="EditProfile">
+    <div>
+        <label asp-for="FullName"></label><br />
+        <input asp-for="FullName" />
+        <span asp-validation-for="FullName"></span>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>

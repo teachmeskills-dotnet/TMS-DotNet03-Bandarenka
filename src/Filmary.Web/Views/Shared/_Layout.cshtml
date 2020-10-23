@@ -12,24 +12,41 @@
         <div class="wrapper">
             <div class="header header__indent-bottom">
 
-                <div class="logo">FILMARY</div>
+                <div class="logo" asp-controller="Home" asp-action="Index">FILMARY</div>
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                <div class="auth">
-                    <span class="auth__name">@User.Identity.Name</span>
-                    <form method="post" asp-controller="Account" asp-action="Logout">
-                        <button class="button" type="submit">Logout</button>
-                    </form>
-                </div>
-                <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Изменить</a>
+                    <ul class="menu">
+                        <li>
+                            <a href=#>Meny1</a>
+                            <ul class="submenu">
+                                <li><a href=#>My library</a></li>
+                                <li><a href=#>I want to see</a></li>
+                                <li><a href=#>Movies watched</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <div class="auth">
+
+                        <span class="auth__name">@User.Identity.Name</span>
+                        <a button class="box" type="submit" asp-controller="Profile" asp-action="Profile">Edit</a>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button class="button" type="submit">Logout</button>
+                        </form>
+                    </div>
+
+
+
+
+
                 }
                 else
                 {
-                <div class="auth">
-                    <a class="link" asp-controller="Account" asp-action="Login">Login</a>
-                    <a class="button button__link" asp-controller="Account" asp-action="Register">Register</a>
-                </div>
+                    <div class="auth">
+                        <a class="link" asp-controller="Account" asp-action="Login">Login</a>
+                        <a class="button button__link" asp-controller="Account" asp-action="Register">Register</a>
+                    </div>
                 }
             </div>
         </div>

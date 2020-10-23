@@ -1,3 +1,7 @@
+using Filmary.BLL.Interfaces;
+using Filmary.BLL.Repository;
+using Filmary.BLL.Services;
+using Filmary.Common.Interfaces;
 using Filmary.Context;
 using Filmary.DAL.Models;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +25,11 @@ namespace Filmary.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+     
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+           
+            services.AddScoped<IProfileService, ProfileService>();
             services.AddDbContext<FilmaryDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("FilmaryDatabase")));
 

@@ -23,7 +23,6 @@ namespace Filmary.DAL.Configurations
                 .IsRequired();
 
             builder.Property(profile => profile.FullName)
-                .IsRequired()
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
 
