@@ -69,7 +69,7 @@ namespace Filmary.BLL.Interfaces
         ///// Get Compilation from base
         ///// </summary>
         ///// <param name="userId">Search profil by UserId key</param>
-        //Task<IEnumerable<Statusdto>> GetStatus(int profileId);
+        Task<bool> CheckAddFilm(int id, Profiledto profile);
 
         //Task AddAsyncStatusProfile(Statusdto StatusFilms);
 

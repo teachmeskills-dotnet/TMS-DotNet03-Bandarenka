@@ -92,13 +92,13 @@ namespace Filmary.BLL.Services
             var FilmsUser = await _repositoryStatus
                 .GetAll()
                 .AsNoTracking()
-                .Where(FilmsUser => FilmsUser.ProfileId == profileId && FilmsUser.StatusName==Status)
+                .Where(FilmsUser => FilmsUser.ProfileId == profileId && FilmsUser.StatusName == Status)
                 .ToListAsync();
 
 
             if (!FilmsUser.Any())
             {
-                return Filmslist;  
+                return Filmslist;
             }
 
             foreach (var FilmsUsers in FilmsUser)
@@ -137,24 +137,45 @@ namespace Filmary.BLL.Services
 
 
 
-                return Filmslist;
+            return Filmslist;
         }
 
-public async Task DeleteAsync(Filmsdto film, Profiledto profile)
-{
-    var getFilmmodel = await _repository.GetEntityWithoutTrackingAsync(filmid => filmid.FilmsId == film.FilmsId);
+        public async Task DeleteAsync(Filmsdto film, Profiledto profile)
+        {
+            var getFilmmodel = await _repository.GetEntityWithoutTrackingAsync(filmid => filmid.FilmsId == film.FilmsId);
 
 
 
-    var delModel = await _repositoryStatus.GetEntityWithoutTrackingAsync(statusModel => statusModel.FilmId == getFilmmodel.Id && statusModel.ProfileId == profile.Id);
-    if (delModel is null)
-    {
-        return;
-    }
+            var delModel = await _repositoryStatus.GetEntityWithoutTrackingAsync(statusModel => statusModel.FilmId == getFilmmodel.Id && statusModel.ProfileId == profile.Id);
+            if (delModel is null)
+            {
+                return;
+            }
 
-    _repositoryStatus.Delete(delModel);
-    await _repositoryStatus.SaveChangesAsync();
-}
+            _repositoryStatus.Delete(delModel);
+            await _repositoryStatus.SaveChangesAsync();
+        }
+
+
+
+        public async Task<bool> CheckAddFilm(int id, Profiledto profile)
+        {
+            var getFilmmodel = await _repository.GetEntityWithoutTrackingAsync(filmid => filmid.FilmsId == id);
+            if (getFilmmodel is null)
+            {
+                return false;
+            }
+
+
+            var delModel = await _repositoryStatus.GetEntityWithoutTrackingAsync(statusModel => statusModel.FilmId == getFilmmodel.Id && statusModel.ProfileId == profile.Id);
+            if (delModel is null)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
 
     }
 }

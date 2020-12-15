@@ -34,17 +34,18 @@
                     <h3>   @Model.FilmsName </h3>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <script src="~/js/script.js"></script>
+                        @*<script src="~/js/script.js"></script>
 
                         <button type="submit" target="_blank" onclick="return confirmDelete(this);" class="delete-link need-to-confirm">
                             <span class="maintext">&#10008; Delete</span>
                             <form asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
                                 <span class="confirmation"> &#10004; Sure?</span>
-                                @*<span class="confirmation" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id"> &#10004; Sure?</span>*@
+                                <span class="confirmation" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id"> &#10004; Sure?</span>
                             </form>
-                        </button>
+                        </button>*@
 
-
+                        @if (Model.Button)
+                        {
                         <form asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
                             <button class="nonborder">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" type="submit" color="red" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +56,8 @@
 
 
                         </form>
-                    }
+                            }
+                        }
                     </div>
 
 
@@ -66,27 +68,30 @@
 
 
                     @*<button type="button" class="btn btn-success">Add</button>
-            @if (User.Identity.IsAuthenticated)
-                   {    <button type="button" class="btn btn-danger">Del</button>*@
+        @if (User.Identity.IsAuthenticated)
+               {    <button type="button" class="btn btn-danger">Del</button>*@
 
                     @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="line">
-                        <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
-                            <button type="submit" class="btn btn-outline-success">Хочу посмотреть</button>
-                        </form>
-                        <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
-                            <button type="submit" class="btn btn-outline-success">Просмотрен</button>
-                        </form>
-                            </div>
 
+                    {
+                        @if (!Model.Button)
+                        {
+                            <div class="line">
+                                <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
+                                    <button type="submit" class="btn btn-outline-success">Хочу посмотреть</button>
+                                </form>
+                                <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
+                                    <button type="submit" class="btn btn-outline-success">Просмотрен</button>
+                                </form>
+                            </div>
+                        }
 
                         //<a asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
                         //    Посмотреть потом
                         //</a>
-                        @*<span class="badge badge-success">Успех</span>
+                            @*<span class="badge badge-success">Успех</span>
                 <span class="badge badge-pill badge-warning">Предупреждение</span>*@
-                        @*<button type="button" class="btn btn-outline-danger">Del</button>*@
+                            @*<button type="button" class="btn btn-outline-danger">Del</button>*@
 
                     }
                 </div>

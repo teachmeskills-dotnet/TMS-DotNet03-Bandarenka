@@ -78,11 +78,23 @@ namespace Filmary.Web.Controllers
             return View(FilmsTopViewsModels);
         }
 
+       
         public async Task<IActionResult> FilmsInfo(int ID)
 
         {
+            var status = false;
+            var username = User.Identity.Name;
+            if (username != null) {
+                var user = await _userManager.FindByNameAsync(username);
+                var profile = await _profileService.GetProfileByUserId(user.Id);
+                status = await _filmsService.CheckAddFilm(ID, profile);
+
+            }
+
+            
             var FilmInfo = await _IApiService.GetInfoFilmsAsync(ID);
             var pic = "https://image.tmdb.org/t/p/w500" + FilmInfo.poster_path;
+        
             var FilmInfoModel = new FilmsViewModel
             {
 
@@ -91,8 +103,8 @@ namespace Filmary.Web.Controllers
                 //Premiere = FilmInfo.release_date,
                 Budget = FilmInfo.budget,
                 Picture = pic,
-                Id = ID
-
+                Id = ID,
+                Button = status
             };
 
             return View(FilmInfoModel);
@@ -102,8 +114,6 @@ namespace Filmary.Web.Controllers
 
 
         }
-
-
 
         public async Task<IActionResult> FilmsAdd(int ID, int status)
         {
