@@ -1,3 +1,5 @@
+using Filmary.BLL.Api.Interfaces;
+using Filmary.BLL.Api.Services;
 using Filmary.BLL.Interfaces;
 using Filmary.BLL.Repository;
 using Filmary.BLL.Services;
@@ -9,6 +11,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
 using System;
 
 
@@ -30,6 +34,8 @@ namespace Filmary.Web
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
            
             services.AddScoped<IProfileService, ProfileService>();
+            services.AddScoped<IApiService, ApiService>();
+            services.AddScoped<IFilmsService, FilmsService>();
             services.AddDbContext<FilmaryDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("FilmaryDatabase")));
 
@@ -38,6 +44,22 @@ namespace Filmary.Web
                 .AddDefaultTokenProviders();
 
             services.AddControllersWithViews();
+
+           // NuGet services
+            var mailKitOptions = Configuration.GetSection("Mail").Get<MailKitOptions>();
+            services.AddMailKit(optionBuilder =>
+            {
+                optionBuilder.UseMailKit(new MailKitOptions()
+                {
+                    Server = mailKitOptions.Server,
+                    Port = mailKitOptions.Port,
+                    SenderName = mailKitOptions.SenderName,
+                    SenderEmail = mailKitOptions.SenderEmail,
+                    Account = mailKitOptions.Account,
+                    Password = mailKitOptions.Password,
+                    Security = true
+                });
+            });
 
         }
 
@@ -59,6 +81,9 @@ namespace Filmary.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
+
         }
     }
 }

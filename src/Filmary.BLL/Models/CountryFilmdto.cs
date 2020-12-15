@@ -3,7 +3,7 @@
     /// <summary>
     /// Transport model from groupeprofile
     /// </summary>
-    public class CountryFilm
+    public class CountryFilmdto
     {
         /// <inheritdoc/>
         public int Id { get; set; }

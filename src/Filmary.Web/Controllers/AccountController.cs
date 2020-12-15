@@ -4,6 +4,7 @@ using Filmary.DAL.Models;
 using Filmary.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NETCore.MailKit.Core;
 using System;
 using System.Threading.Tasks;
 
@@ -15,12 +16,17 @@ namespace Filmary.Web.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IProfileService _profileService;
+        private readonly IEmailService _emailService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IProfileService profileService)
+        public AccountController(UserManager<User> userManager, 
+            SignInManager<User> signInManager, 
+            IProfileService profileService, 
+            IEmailService emailService)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
             _profileService = profileService ?? throw new ArgumentNullException(nameof(profileService));
+            _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
         }
 
         [HttpGet]
@@ -48,6 +54,9 @@ namespace Filmary.Web.Controllers
                     await _profileService.AddAsync(profile);
                     // add cookies
                     await _signInManager.SignInAsync(user, false);
+
+                    _emailService.Send(model.Email, "Hello", "Welcome to my site");
+
                     return RedirectToAction("Index", "Home");
                 }
                 else

@@ -21,7 +21,11 @@ namespace Filmary.DAL.Configurations
             builder.ToTable(TableConstants.Films)
                 .HasKey(Films => Films.Id);
 
-       
+            builder.Property(Films => Films.FilmsId)
+                .IsRequired()
+                .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
+                 
+
             builder.Property(Films => Films.Year)                
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
@@ -41,16 +45,13 @@ namespace Filmary.DAL.Configurations
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
             builder.Property(Films => Films.Description)
-                .IsRequired()
-                .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
+                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
             builder.Property(Films => Films.Picture)
-                .IsRequired()
-                .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
+                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
             builder.Property(Films => Films.FilmsName)
-                .IsRequired()
-                .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
+                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
             builder.Property(Films => Films.Rating)                
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);

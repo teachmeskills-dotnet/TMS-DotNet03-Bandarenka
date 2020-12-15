@@ -1,0 +1,58 @@
+﻿@model FilmsViewModel
+
+
+    <form method="post" asp-controller="Films" asp-action="AddFilm">
+        <div>
+            <label asp-for="FilmsName"></label><br />
+            <input asp-for="FilmsName" />
+            <span asp-validation-for="FilmsName"></span>
+        </div>
+        <div>
+            <label asp-for="Year "></label><br />
+            <input asp-for="Year " />
+            <span asp-validation-for="Year "></span>
+        </div>
+        <div>
+            <label asp-for="Scenario "></label><br />
+            <input asp-for="Scenario " />
+            <span asp-validation-for="Scenario "></span>
+            <div>
+                <label asp-for="Producer "></label><br />
+                <input asp-for="Producer " />
+                <span asp-validation-for="Producer "></span>
+                <div>
+                    <label asp-for="Budget "></label><br />
+                    <input asp-for="Budget " />
+                    <span asp-validation-for="Budget "></span>
+                    <div>
+                        <label asp-for="Premiere "></label><br />
+                        <input asp-for="Premiere " />
+                        <span asp-validation-for="Premiere "></span>
+                        <div>
+                            <label asp-for="Duration  "></label><br />
+                            <input asp-for="Duration  " />
+                            <span asp-validation-for="Duration  "></span>
+                            <div>
+                                <label asp-for="Description "></label><br />
+                                <input asp-for="Description " />
+                                <span asp-validation-for="Description "></span>
+                            </div>
+                            <div>
+                                <label asp-for="Picture  "></label><br />
+                                <input asp-for="Picture  " />
+                                <span asp-validation-for="Picture  "></span>
+                            </div>
+                            <div>
+                                <label asp-for="Rating   "></label><br />
+                                <input asp-for="Rating   " />
+                                <span asp-validation-for="Rating   "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </form>

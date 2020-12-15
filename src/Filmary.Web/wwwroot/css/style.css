@@ -1,6 +1,7 @@
 ﻿a {
     cursor: pointer;
     font-size: 12px;
+    text-decoration: none;
 }
 
 p {
@@ -46,4 +47,49 @@ img {
     border-radius: 50%;
     animation: spin 500ms linear;
     animation-iteration-count: infinite;
+}
+
+.imgposter {
+    height:30%;
+    width:30%
+}
+.nonborder {
+    border: none;
+    height:32px;
+    width: 32px;
+    
+
+}
+
+.line {
+    display: flex;
+    align-items: center;
+}
+
+.delete-link {
+    display: inline-block;
+    padding: 3px 5px;
+    border: 1px solid red;
+    background-color: #edbaba;
+    color: red;
+    text-decoration: none;
+}
+
+    .delete-link:hover {
+        background-color: #fff;
+        text-decoration: none;
+    }
+
+.need-to-confirm .confirmation {
+    display: none;
+    text-decoration: none;
+}
+
+.confirmed .maintext {
+    display: none;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }

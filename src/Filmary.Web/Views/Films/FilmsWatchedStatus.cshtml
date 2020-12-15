@@ -1,0 +1,50 @@
+﻿
+@model IEnumerable<FilmsViewModel>
+
+
+<body>
+
+
+    @*<div class=".container-sm"><a class="Filmary" href="#">Filmary</a></div>*@
+   
+    <div class=".container-sm">
+       
+        <div class="row">
+
+            @*<script src="~/js/script.js"></script>*@
+
+            @if (Model.Any())
+            {
+                foreach (var FilmStatus in Model)
+                {
+
+
+                    <form class="col-md-6 col-lg-4 col-xl-2 item" asp-controller="Home" asp-action="Index">
+
+
+
+
+
+
+
+                        <div>
+                            <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmStatus.Id">
+                                <img src="@FilmStatus.Picture" />
+
+                            </a>
+                            <p> @FilmStatus.FilmsName</p>
+                            @*<img src=@FilmTop.Picture >*@
+                        </div>
+                    </form>
+
+                }
+            }
+            else
+            {
+                <h1>Список фильмов пуст</h1>
+            }
+        </div>
+    </div>
+</body>
+
+

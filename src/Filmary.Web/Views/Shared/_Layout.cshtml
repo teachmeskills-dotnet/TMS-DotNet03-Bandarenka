@@ -5,56 +5,84 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/css/app.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     @RenderSection("css", false)
+
 </head>
 <body>
     <header>
-        <div class="wrapper">
-            <div class="header header__indent-bottom">
+        <div class=".container-sm">
+            <div class="wrapper">
+                <div class="header header__indent-bottom">
 
-                <div class="logo" asp-controller="Home" asp-action="Index">FILMARY</div>
+                    <a class="logo" asp-controller="Home" asp-action="Index">FILMARY</a>
 
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <ul class="menu">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <form asp-controller="Films" asp-action="FilmsWatchedStatus" asp-route-status="1">
+                        <button type="submit" class="btn btn-secondary">Хочу посмотреть</button>
+                    </form>
+
+                    <form asp-controller="Films" asp-action="FilmsWatchedStatus" asp-route-status="2">
+                        <button type="submit" class="btn btn-secondary">Просмотрен</button>
+                        </form>
+                      
+</div>
+                        @*<ul class="menu">
                         <li>
-                            <a href=#>Meny1</a>
+
+                            <a href=#>Menu</a>
                             <ul class="submenu">
-                                <li><a href=#>My library</a></li>
+                                <li><a button class="button" type="submit" asp-controller="Films" asp-action="Films">My film selections</a></li>
                                 <li><a href=#>I want to see</a></li>
                                 <li><a href=#>Movies watched</a></li>
                             </ul>
                         </li>
 
-                    </ul>
-                    <div class="auth">
+                    </ul>*@
+                <div class="auth">
 
-                        <span class="auth__name">@User.Identity.Name</span>
-                        <a button class="box" type="submit" asp-controller="Profile" asp-action="Profile">Edit</a>
-                        <form method="post" asp-controller="Account" asp-action="Logout">
-                            <button class="button" type="submit">Logout</button>
-                        </form>
-                    </div>
+                    <span class="auth__name">@User.Identity.Name</span>
+
+                    @*<a button class="button" type="submit" asp-controller="Profile" asp-action="Profile">Edit</a>*@
+                    <a button type="submit" class="btn btn-outline-dark" asp-controller="Profile" asp-action="Profile">Edit</a>
+                    
+                    <form method="post" asp-controller="Account" asp-action="Logout">
+                        @*<button class="button" type="submit">Logout</button>*@
+                        <button type="submit" class="btn btn-outline-dark">Logout</button>
+                    </form>
+                </div>
 
 
+                    }
+                    else
+                    {
+                <div class="auth">
+                    @*<a class="link" asp-controller="Account" asp-action="Login">Login</a>
+                    <a class="button button__link" asp-controller="Account" asp-action="Register">Register</a>*@
 
-
-
-                }
-                else
-                {
-                    <div class="auth">
-                        <a class="link" asp-controller="Account" asp-action="Login">Login</a>
-                        <a class="button button__link" asp-controller="Account" asp-action="Register">Register</a>
-                    </div>
-                }
+                    <a class="btn btn-outline-dark" asp-controller="Account" asp-action="Login">Login</a>
+                    <a class="btn btn-outline-dark" asp-controller="Account" asp-action="Register">Register</a>
+                </div>
+                    }
+                </div>
             </div>
+
         </div>
-    </header>
+</header>
 
     <div class="wrapper">
         @RenderBody()
     </div>
 
+   
 </body>
 </html>

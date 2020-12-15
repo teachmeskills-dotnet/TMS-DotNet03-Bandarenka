@@ -1,19 +1,10 @@
 ﻿using System;
 
-namespace Filmary.BLL.Models
+namespace Filmary.Web.ViewModels
 {
-    /// <summary>
-    /// Transport model from groupeprofile
-    /// </summary>
-    public class Filmsdto
+    public class FilmsViewModel
     {
-        /// <inheritdoc/>
         public int Id { get; set; }
-
-        /// <summary>
-        /// FilmsId
-        /// </summary>
-        public int FilmsId { get; set; }
 
         /// <summary>
         /// FilmsName
@@ -38,7 +29,7 @@ namespace Filmary.BLL.Models
         /// <summary>
         /// Budget
         /// </summary>
-        public string Budget { get; set; }
+        public int Budget { get; set; }
 
         /// <summary>
         /// Premiere
@@ -65,10 +56,6 @@ namespace Filmary.BLL.Models
         /// </summary>
         public string Rating { get; set; }
 
-        /// <summary>
-        /// Navigation to CountryFilm
-        /// </summary>
-
-
     }
 }
+

@@ -51,7 +51,6 @@
 
 <body>
 
-    <header>
     @*<div class=".container-sm"><a class="Filmary" href="#">Filmary</a></div>*@
     <div class=".container-sm">
         <div class="jumbotron">
@@ -59,15 +58,13 @@
                 Search movies
             </h3>
             @*<form id="search-form">*@
-
             <form method="post" asp-controller="Films" asp-action="SearchFilms">
                 <input type="text" name="search" class="form-control" placeholder="Enter the title of the movie...">
             </form>
         </div>
     </div>
     <div class=".container-sm">
-        <h3 class="Filmary col-12 text-center text-info title">Топ фильмов за неделю!</h3>
-        <div class="row">
+        <div class="row" id="movies">
 
             @*<script src="~/js/script.js"></script>*@
 
@@ -77,35 +74,31 @@
                 {
 
 
-                    <form class="col-md-6 col-lg-4 col-xl-2 item" asp-controller="Home" asp-action="Index">
+            <form class="col-md-6 col-lg-4 col-xl-2 item">
 
 
 
+                <div>
+
+                <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
+                    <img src="@FilmTop.Picture" />
+                </a>
+                <p> @FilmTop.FilmsName</p>
+                    </div>
 
 
 
-
-                        <div>
-                            <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
-                                <img src="@FilmTop.Picture" />
-
-                            </a>
-                            <p> @FilmTop.FilmsName</p>
-                            @*<img src=@FilmTop.Picture >*@
-                        </div>
-                    </form>
+            </form>
 
                 }
             }
+
             else
             {
                 <h1>Список фильмов пуст</h1>
             }
         </div>
     </div>
-
-    </header>
-
 </body>
 
 

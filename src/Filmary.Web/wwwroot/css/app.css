@@ -4,7 +4,16 @@
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
+    text-decoration: none;
 }
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
 
 body {
     background: #F2F5F7;
@@ -41,10 +50,15 @@ header {
 .logo {
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
-    line-height: 27px;
+    font-size: 25px;
+    line-height: 32px;
     color: #242e4c;
+    text-decoration: none;
 }
+
+    .logo:hover {
+    text-decoration:none;
+    }
 
 .auth {
     width: 200px;
@@ -150,31 +164,3 @@ ul {
                 background-color: black;
             }
 
-    ul.submenu {
-        display: none;
-        position: absolute;
-        width: 120px;
-        top: 37px;
-        left: 0;
-        background-color: white;
-        border: 1px solid red;
-    }
-
-        ul.submenu > li {
-            display: block;
-        }
-
-            ul.submenu > li > a {
-                display: block;
-                padding: 10px;
-                color: white;
-                background-color: red;
-                text-decoration: none;
-            }
-
-                ul.submenu > li > a:hover {
-                    text-decoration: underline;
-                }
-    ul.menu > li:hover > ul.submenu {
-        display: block;
-    }
