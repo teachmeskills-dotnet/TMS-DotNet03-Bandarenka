@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Filmary.BLL.Api.Models
 {
-   
     public class Example
     {
         public int page { get; set; }

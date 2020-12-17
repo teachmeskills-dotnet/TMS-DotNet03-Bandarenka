@@ -29,7 +29,7 @@
 //                if (item.media_type !== "person") dataInfo = `data-id="${item.id}" data-type="${item.media_type}"`;
 //                inner += `<div class = 'col-md-6 col-lg-4 col-xl-2 item'>
 //            <img src= "${poster}" class = "img_poster" alt = "${nameItem}" ${dataInfo}>
-//            <h5>${nameItem}</h5> 
+//            <h5>${nameItem}</h5>
 //            </div>
 //            `;
 //            });
@@ -80,17 +80,16 @@
 //                <p class="text-primary">Рейтинг: ${output.vote_average}</p>
 //                <p>Статус: ${output.status}</p>
 //                <p>Премьера: ${output.first_air_date || output.release_date}</p>
-            
+
 //                ${(output.last_episode_to_air) ? `<p>${output.number_of_seasons} сезонов ${output.last_episode_to_air.episode_number} серий вышло </p>` : ""}
 //                <p class="overview"><i>Описание: ${output.overview}</i></p>
-            
+
 //                <br>
 //                <div class="youtube">
-            
-//                </div>    
+
+//                </div>
 //            </div>
 //            `;
-
 
 //        })
 //        .catch(function (reason) {
@@ -160,7 +159,3 @@ window.confirmDelete = (function (element) {
         element.remove();
     }
 });
-
-
-
-

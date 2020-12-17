@@ -1,7 +1,4 @@
 ﻿using Filmary.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Filmary.DAL.Models
 {

@@ -15,7 +15,6 @@ using NETCore.MailKit.Extensions;
 using NETCore.MailKit.Infrastructure.Internal;
 using System;
 
-
 namespace Filmary.Web
 {
     public class Startup
@@ -29,10 +28,8 @@ namespace Filmary.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-     
-
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-           
+
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IApiService, ApiService>();
             services.AddScoped<IFilmsService, FilmsService>();
@@ -45,7 +42,7 @@ namespace Filmary.Web
 
             services.AddControllersWithViews();
 
-           // NuGet services
+            // NuGet services
             var mailKitOptions = Configuration.GetSection("Mail").Get<MailKitOptions>();
             services.AddMailKit(optionBuilder =>
             {
@@ -60,7 +57,6 @@ namespace Filmary.Web
                     Security = true
                 });
             });
-
         }
 
         public void Configure(IApplicationBuilder app)
@@ -81,9 +77,6 @@ namespace Filmary.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            
-
         }
     }
 }

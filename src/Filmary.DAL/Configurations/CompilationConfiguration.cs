@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-
 namespace Filmary.DAL.Configurations
 {
     /// <summary>
@@ -20,15 +19,13 @@ namespace Filmary.DAL.Configurations
             builder.ToTable(TableConstants.Compilation)
                 .HasKey(Compilation => Compilation.Id);
 
-
-            builder.Property(Compilation => Compilation.CompilationName)                
+            builder.Property(Compilation => Compilation.CompilationName)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
             builder.HasOne(Compilation => Compilation.Profile)
                .WithMany(Profile => Profile.Compilations)
                .HasForeignKey(Compilation => Compilation.ProfileId)
                .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

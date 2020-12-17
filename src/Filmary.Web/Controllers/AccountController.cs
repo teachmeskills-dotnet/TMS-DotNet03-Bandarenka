@@ -12,15 +12,14 @@ namespace Filmary.Web.Controllers
 {
     public class AccountController : Controller
     {
-
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IProfileService _profileService;
         private readonly IEmailService _emailService;
 
-        public AccountController(UserManager<User> userManager, 
-            SignInManager<User> signInManager, 
-            IProfileService profileService, 
+        public AccountController(UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            IProfileService profileService,
             IEmailService emailService)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
@@ -34,6 +33,7 @@ namespace Filmary.Web.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -45,7 +45,6 @@ namespace Filmary.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-
                     var profile = new Profiledto()
                     {
                         UserId = user.Id
@@ -102,7 +101,6 @@ namespace Filmary.Web.Controllers
             }
             return View(model);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -165,6 +163,5 @@ namespace Filmary.Web.Controllers
             }
             return View(model);
         }
-
     }
 }

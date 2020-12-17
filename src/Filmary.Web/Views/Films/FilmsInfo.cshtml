@@ -36,71 +36,88 @@
                     {
                         @*<script src="~/js/script.js"></script>
 
-                        <button type="submit" target="_blank" onclick="return confirmDelete(this);" class="delete-link need-to-confirm">
-                            <span class="maintext">&#10008; Delete</span>
-                            <form asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
-                                <span class="confirmation"> &#10004; Sure?</span>
-                                <span class="confirmation" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id"> &#10004; Sure?</span>
-                            </form>
-                        </button>*@
+                            <button type="submit" target="_blank" onclick="return confirmDelete(this);" class="delete-link need-to-confirm">
+                                <span class="maintext">&#10008; Delete</span>
+                                <form asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
+                                    <span class="confirmation"> &#10004; Sure?</span>
+                                    <span class="confirmation" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id"> &#10004; Sure?</span>
+                                </form>
+                            </button>*@
 
                         @if (Model.Button)
                         {
-                        <form asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
-                            <button class="nonborder">
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" type="submit" color="red" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                </svg>
-                            </button>
 
+                            <a class="delete" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
+                                <img title="Удалить" src="~/img/delete.svg" />
+                            </a>
 
-                        </form>
-                            }
+                            @*<form asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
+                                    <button class="nonborder">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" type="submit" color="red" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </button>
+                                </form>*@
                         }
-                    </div>
-
+                    }
+                </div>
 
                 <div>
 
                     <p>@Model.Duration</p>
                     @*<p>@Model.Budget</p>*@
 
-
                     @*<button type="button" class="btn btn-success">Add</button>
-        @if (User.Identity.IsAuthenticated)
-               {    <button type="button" class="btn btn-danger">Del</button>*@
+                        @if (User.Identity.IsAuthenticated)
+                               {    <button type="button" class="btn btn-danger">Del</button>*@
 
                     @if (User.Identity.IsAuthenticated)
 
                     {
                         @if (!Model.Button)
                         {
+                            @*<div class="line">
+                                    <a asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
+                                        <img title="Хочу посмотреть" src="~/img/invisible.svg" />
+                                    </a>
+
+                                    <a asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
+                                        <img title="Просмотрен" src="~/img/visibility.svg" />
+                                    </a>
+                                </div>*@
+
                             <div class="line">
+                                @*<form  asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
+                                    <a class="indent">
+                                        <img title="Хочу посмотреть" src="~/img/invisible.svg" />
+                                    </a>
+                                        </form>
+                                    <a class="indent" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
+                                        <img title="Просмотрен" src="~/img/visibility.svg" />
+                                    </a>*@
+
                                 <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
-                                    <button type="submit" class="btn btn-outline-success">Хочу посмотреть</button>
+                                    <button type="submit" class="btn btn-outline-success indent">Хочу посмотреть</button>
                                 </form>
                                 <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
-                                    <button type="submit" class="btn btn-outline-success">Просмотрен</button>
+                                    <button type="submit" class="btn btn-outline-success indent">Просмотрен</button>
                                 </form>
                             </div>
+
                         }
 
                         //<a asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
                         //    Посмотреть потом
                         //</a>
-                            @*<span class="badge badge-success">Успех</span>
-                <span class="badge badge-pill badge-warning">Предупреждение</span>*@
-                            @*<button type="button" class="btn btn-outline-danger">Del</button>*@
+                        @*<span class="badge badge-success">Успех</span>
+                            <span class="badge badge-pill badge-warning">Предупреждение</span>*@
+                        @*<button type="button" class="btn btn-outline-danger">Del</button>*@
 
                     }
                 </div>
             </div>
-                    </div>
-                </div>
-
+        </div>
+    </div>
 </body>
-
-
-
 </html>

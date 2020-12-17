@@ -3,8 +3,6 @@ using Filmary.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Filmary.DAL.Configurations
 {
@@ -24,24 +22,23 @@ namespace Filmary.DAL.Configurations
             builder.Property(Films => Films.FilmsId)
                 .IsRequired()
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
-                 
 
-            builder.Property(Films => Films.Year)                
+            builder.Property(Films => Films.Year)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-            builder.Property(Films => Films.Scenario)                
+            builder.Property(Films => Films.Scenario)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-            builder.Property(Films => Films.Producer)                
+            builder.Property(Films => Films.Producer)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-            builder.Property(Films => Films.Budget)                
+            builder.Property(Films => Films.Budget)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-            builder.Property(Films => Films.Premiere)                
+            builder.Property(Films => Films.Premiere)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-            builder.Property(Films => Films.Duration)                
+            builder.Property(Films => Films.Duration)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
             builder.Property(Films => Films.Description)
@@ -53,9 +50,8 @@ namespace Filmary.DAL.Configurations
             builder.Property(Films => Films.FilmsName)
                  .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-            builder.Property(Films => Films.Rating)                
+            builder.Property(Films => Films.Rating)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
-
         }
     }
 }

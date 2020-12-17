@@ -1,13 +1,12 @@
-﻿
-using Filmary.Common.Interfaces;
-using Filmary.BLL.Interfaces;
+﻿using Filmary.BLL.Interfaces;
 using Filmary.BLL.Models;
+using Filmary.Common.Interfaces;
 using Filmary.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Filmary.BLL.Services
 {
@@ -24,6 +23,7 @@ namespace Filmary.BLL.Services
             _repositoryStatus = repositoryStatus ?? throw new ArgumentNullException(nameof(repositoryStatus));
             _repositoryProfile = repositoryProfile ?? throw new ArgumentNullException(nameof(repository));
         }
+
         public async Task AddAsync(Filmsdto film, Profiledto profile, int status)
         {
             if (film is null)
@@ -48,15 +48,11 @@ namespace Filmary.BLL.Services
                     //   Description = film.Description,
                     Picture = film.Picture,
                     //  Rating = film.Rating,
-
-
                 };
 
                 await _repository.AddAsync(filmmodel);
                 await _repository.SaveChangesAsync();
             }
-
-
 
             var getFilmmodel = await _repository.GetEntityWithoutTrackingAsync(filmid => filmid.FilmsId == film.FilmsId);
 
@@ -80,11 +76,6 @@ namespace Filmary.BLL.Services
             await _repositoryStatus.SaveChangesAsync();
         }
 
-
-
-
-
-
         public async Task<IEnumerable<Filmsdto>> GetFilmStatusAsync(int profileId, int Status)
         {
             var Filmslist = new List<Filmsdto>();
@@ -94,7 +85,6 @@ namespace Filmary.BLL.Services
                 .AsNoTracking()
                 .Where(FilmsUser => FilmsUser.ProfileId == profileId && FilmsUser.StatusName == Status)
                 .ToListAsync();
-
 
             if (!FilmsUser.Any())
             {
@@ -135,16 +125,12 @@ namespace Filmary.BLL.Services
                 });
             }
 
-
-
             return Filmslist;
         }
 
         public async Task DeleteAsync(Filmsdto film, Profiledto profile)
         {
             var getFilmmodel = await _repository.GetEntityWithoutTrackingAsync(filmid => filmid.FilmsId == film.FilmsId);
-
-
 
             var delModel = await _repositoryStatus.GetEntityWithoutTrackingAsync(statusModel => statusModel.FilmId == getFilmmodel.Id && statusModel.ProfileId == profile.Id);
             if (delModel is null)
@@ -156,8 +142,6 @@ namespace Filmary.BLL.Services
             await _repositoryStatus.SaveChangesAsync();
         }
 
-
-
         public async Task<bool> CheckAddFilm(int id, Profiledto profile)
         {
             var getFilmmodel = await _repository.GetEntityWithoutTrackingAsync(filmid => filmid.FilmsId == id);
@@ -166,7 +150,6 @@ namespace Filmary.BLL.Services
                 return false;
             }
 
-
             var delModel = await _repositoryStatus.GetEntityWithoutTrackingAsync(statusModel => statusModel.FilmId == getFilmmodel.Id && statusModel.ProfileId == profile.Id);
             if (delModel is null)
             {
@@ -174,19 +157,9 @@ namespace Filmary.BLL.Services
             }
 
             return true;
-
         }
-
     }
 }
-
-
-
-
-
-
-
-
 
 //        public async Task DeleteAsync(Filmsdto film, Profiledto profile, int status)
 //        {
@@ -201,19 +174,6 @@ namespace Filmary.BLL.Services
 //            _repository.Delete(todo);
 //            await _repositoryTodo.SaveChangesAsync();
 //        }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //        public async Task Edit(Filmsdto films)
 //        {
@@ -291,5 +251,3 @@ namespace Filmary.BLL.Services
 //        }
 //    }
 //}
-
-

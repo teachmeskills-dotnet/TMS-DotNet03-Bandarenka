@@ -10,17 +10,17 @@
 {
     foreach (var films in Model)
     {
-        
-            <div>
-                <a class="todo__text" asp-controller="FIlms" asp-action="Detail" asp-route-id="@films.Id">
-                    <span>@films.FilmsName</span>
-                </a>
-                <p> Название: @films.FilmsName</p>
-            </div>
-            <div>
-                <p> Комментарий: @films.Description</p>
-            </div>
-       
+
+        <div>
+            <a class="todo__text" asp-controller="FIlms" asp-action="Detail" asp-route-id="@films.Id">
+                <span>@films.FilmsName</span>
+            </a>
+            <p> Название: @films.FilmsName</p>
+        </div>
+        <div>
+            <p> Комментарий: @films.Description</p>
+        </div>
+
     }
 }
 else

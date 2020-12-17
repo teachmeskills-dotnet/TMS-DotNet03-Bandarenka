@@ -3,7 +3,7 @@
     /// <summary>
     /// Transport model from groupeprofile
     /// </summary>
-    public class Artistdto 
+    public class Artistdto
     {
         /// <inheritdoc/>
         public int Id { get; set; }
@@ -12,6 +12,5 @@
         /// ArtistName
         /// </summary>
         public string ArtistName { get; set; }
-
     }
 }

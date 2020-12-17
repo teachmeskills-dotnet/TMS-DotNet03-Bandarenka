@@ -19,7 +19,6 @@ namespace Filmary.DAL.Configurations
             builder.ToTable(TableConstants.CountryFilm)
                 .HasKey(CountryFilm => CountryFilm.Id);
 
-
             builder.HasOne(CountryFilm => CountryFilm.Country)
                .WithMany(Country => Country.CountryFilms)
                .HasForeignKey(CountryFilm => CountryFilm.CountryId)
@@ -29,7 +28,6 @@ namespace Filmary.DAL.Configurations
                .WithMany(Films => Films.CountryFilms)
                .HasForeignKey(CountryFilms => CountryFilms.FilmId)
                .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

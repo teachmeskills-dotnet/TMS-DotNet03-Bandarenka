@@ -1,7 +1,5 @@
 ﻿using Filmary.DAL.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Filmary.BLL.Api.Models
 {
@@ -20,11 +18,11 @@ namespace Filmary.BLL.Api.Models
         public string overview { get; set; }
         public double popularity { get; set; }
         public string poster_path { get; set; }
-       
+
         public string release_date { get; set; }
         public int revenue { get; set; }
         public int runtime { get; set; }
-        
+
         public string status { get; set; }
         public string tagline { get; set; }
         public string title { get; set; }

@@ -12,7 +12,5 @@
         /// CountryName
         /// </summary>
         public string CountryName { get; set; }
-
-
     }
 }

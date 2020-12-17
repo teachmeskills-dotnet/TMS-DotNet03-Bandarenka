@@ -25,7 +25,6 @@ namespace Filmary.DAL.Configurations
             builder.Property(profile => profile.FullName)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
 
-
             builder.HasOne(profile => profile.User)
                 .WithOne(user => user.Profile)
                 .HasForeignKey<Profile>(profile => profile.UserId)

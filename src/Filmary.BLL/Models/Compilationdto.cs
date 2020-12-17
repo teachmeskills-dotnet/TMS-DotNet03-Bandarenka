@@ -17,6 +17,5 @@
         /// ProfileId
         /// </summary>
         public int ProfileId { get; set; }
-
     }
 }

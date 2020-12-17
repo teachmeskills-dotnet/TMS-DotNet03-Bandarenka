@@ -14,7 +14,6 @@ namespace Filmary.DAL.Models
         /// </summary>
         public int FilmsId { get; set; }
 
-        
         /// <summary>
         /// FilmsName
         /// </summary>
@@ -94,9 +93,5 @@ namespace Filmary.DAL.Models
         /// Navigation to Status
         /// </summary>
         public ICollection<Status> Statuses { get; set; }
-
-
-
-
     }
 }

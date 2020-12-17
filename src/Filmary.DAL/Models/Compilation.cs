@@ -1,11 +1,9 @@
 ﻿using Filmary.Common.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Filmary.DAL.Models
 {
-   public class Compilation : IHasDbIdentity
+    public class Compilation : IHasDbIdentity
     {
         /// <inheritdoc/>
         public int Id { get; set; }

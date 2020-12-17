@@ -12,12 +12,10 @@
         /// Producer identifier.
         /// </summary>
         public int ProducerId { get; set; }
-               
+
         /// <summary>
         /// Films identifier.
         /// </summary>
         public int FilmId { get; set; }
-
-
     }
 }

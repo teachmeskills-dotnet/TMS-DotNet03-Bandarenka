@@ -2,7 +2,6 @@
 
 namespace Filmary.Web.ViewModels
 
-
 {
     /// <summary>
     /// Login view model.

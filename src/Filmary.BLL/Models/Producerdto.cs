@@ -12,6 +12,5 @@
         /// ProducerName
         /// </summary>
         public string ProducerName { get; set; }
-
     }
 }

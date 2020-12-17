@@ -19,7 +19,6 @@ namespace Filmary.DAL.Configurations
             builder.ToTable(TableConstants.ArtistFilm)
                 .HasKey(ArtistFilm => ArtistFilm.Id);
 
-
             builder.HasOne(ArtistFilm => ArtistFilm.Artist)
                .WithMany(Artist => Artist.ArtistFilms)
                .HasForeignKey(ArtistFilm => ArtistFilm.ArtistId)
@@ -29,7 +28,6 @@ namespace Filmary.DAL.Configurations
                .WithMany(Films => Films.ArtistFilms)
                .HasForeignKey(ArtistFilms => ArtistFilms.FilmId)
                .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

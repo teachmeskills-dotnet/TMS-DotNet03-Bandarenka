@@ -13,15 +13,9 @@
         /// </summary>
         public int ArtistId { get; set; }
 
-
-
-
         /// <summary>
         /// Films identifier.
         /// </summary>
         public int FilmId { get; set; }
-
-
-
     }
 }

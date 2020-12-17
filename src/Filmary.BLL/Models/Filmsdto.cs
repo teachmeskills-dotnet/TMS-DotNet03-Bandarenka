@@ -68,7 +68,5 @@ namespace Filmary.BLL.Models
         /// <summary>
         /// Navigation to CountryFilm
         /// </summary>
-
-
     }
 }

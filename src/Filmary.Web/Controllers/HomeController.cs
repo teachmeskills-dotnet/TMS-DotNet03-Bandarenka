@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Filmary.BLL.Api.Interfaces;
+﻿using Filmary.BLL.Api.Interfaces;
 using Filmary.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Filmary.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IApiService _IApiService;
+
         public HomeController(IApiService apiService)
         {
             _IApiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
-           
         }
+
         public async Task<IActionResult> Index()
         {
             var topFilms = await _IApiService.GetTopFilmsAsync();
@@ -28,26 +28,22 @@ namespace Filmary.Web.Controllers
                 {
                     FilmsTopViewsModels.Add(new HomeViewModel
                     {
-
                         FilmsName = FilmsWeek.name,
                         Picture = pic,
-                         ID = FilmsWeek.id
-
+                        ID = FilmsWeek.id
                     });
                 }
-                else{
+                else
+                {
                     FilmsTopViewsModels.Add(new HomeViewModel
                     {
-
                         FilmsName = FilmsWeek.title,
                         Picture = pic,
-                         ID = FilmsWeek.id
-
+                        ID = FilmsWeek.id
                     });
                 }
             }
             return View(FilmsTopViewsModels);
         }
     }
-    
 }

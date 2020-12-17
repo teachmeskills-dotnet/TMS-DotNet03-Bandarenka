@@ -29,7 +29,7 @@ namespace Filmary.Context
         public DbSet<Profile> ArtistFilm { get; set; }
 
         /// <summary>
-        /// Compilation 
+        /// Compilation
         /// </summary>
         public DbSet<Profile> Compilation { get; set; }
 
@@ -95,7 +95,6 @@ namespace Filmary.Context
             modelBuilder.ApplyConfiguration(new ProducerConfiguration());
             modelBuilder.ApplyConfiguration(new ProducerFilmConfiguration());
             modelBuilder.ApplyConfiguration(new StatusConfiguration());
-
 
             base.OnModelCreating(modelBuilder);
         }

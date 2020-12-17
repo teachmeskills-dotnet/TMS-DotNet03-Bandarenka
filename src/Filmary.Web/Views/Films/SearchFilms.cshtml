@@ -28,7 +28,6 @@
 
       <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Изменить</a>
 
-
       <form method="post" asp-controller="Account" asp-action="Logout">
         <button type="submit">Выход</button>
       </form>
@@ -73,22 +72,16 @@
                 foreach (var FilmTop in Model)
                 {
 
+                    <form class="col-md-6 col-lg-4 col-xl-2 item">
 
-            <form class="col-md-6 col-lg-4 col-xl-2 item">
+                        <div>
 
-
-
-                <div>
-
-                <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
-                    <img src="@FilmTop.Picture" />
-                </a>
-                <p> @FilmTop.FilmsName</p>
-                    </div>
-
-
-
-            </form>
+                            <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
+                                <img src="@FilmTop.Picture" />
+                            </a>
+                            <p> @FilmTop.FilmsName</p>
+                        </div>
+                    </form>
 
                 }
             }
@@ -100,7 +93,4 @@
         </div>
     </div>
 </body>
-
-
-
 </html>

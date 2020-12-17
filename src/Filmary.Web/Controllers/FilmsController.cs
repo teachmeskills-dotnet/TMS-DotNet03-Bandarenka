@@ -3,22 +3,21 @@ using Filmary.BLL.Interfaces;
 using Filmary.BLL.Models;
 using Filmary.DAL.Models;
 using Filmary.Web.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Filmary.Web.Controllers
 {
-
     public class FilmsController : Controller
     {
         private readonly UserManager<User> _userManager;
+
         // private readonly IFilmsService _filmsService;
         private readonly IProfileService _profileService;
+
         private readonly IApiService _IApiService;
         private readonly IFilmsService _filmsService;
 
@@ -35,8 +34,6 @@ namespace Filmary.Web.Controllers
             _filmsService = filmsService ?? throw new ArgumentNullException(nameof(filmsService));
             _IApiService = apiService ?? throw new ArgumentNullException(nameof(apiService));
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> SearchFilms(string search)
@@ -56,48 +53,41 @@ namespace Filmary.Web.Controllers
                 {
                     FilmsTopViewsModels.Add(new HomeViewModel
                     {
-
                         FilmsName = FilmsWeek.name,
                         Picture = pic,
                         ID = FilmsWeek.id
-
                     });
                 }
                 else
                 {
                     FilmsTopViewsModels.Add(new HomeViewModel
                     {
-
                         FilmsName = FilmsWeek.title,
                         Picture = pic,
                         ID = FilmsWeek.id
-
                     });
                 }
             }
             return View(FilmsTopViewsModels);
         }
 
-       
         public async Task<IActionResult> FilmsInfo(int ID)
 
         {
             var status = false;
             var username = User.Identity.Name;
-            if (username != null) {
+            if (username != null)
+            {
                 var user = await _userManager.FindByNameAsync(username);
                 var profile = await _profileService.GetProfileByUserId(user.Id);
                 status = await _filmsService.CheckAddFilm(ID, profile);
-
             }
 
-            
             var FilmInfo = await _IApiService.GetInfoFilmsAsync(ID);
             var pic = "https://image.tmdb.org/t/p/w500" + FilmInfo.poster_path;
-        
+
             var FilmInfoModel = new FilmsViewModel
             {
-
                 FilmsName = FilmInfo.title,
                 Duration = FilmInfo.overview,
                 //Premiere = FilmInfo.release_date,
@@ -108,11 +98,6 @@ namespace Filmary.Web.Controllers
             };
 
             return View(FilmInfoModel);
-
-
-
-
-
         }
 
         public async Task<IActionResult> FilmsAdd(int ID, int status)
@@ -124,11 +109,9 @@ namespace Filmary.Web.Controllers
 
             var model = new Filmsdto
             {
-
                 FilmsName = Filmsdto.title,
                 FilmsId = Filmsdto.id
                 //Premiere = FilmInfo.release_date,
-
 
                 //FilmsName = Filmsdto.FilmsName,
                 //Year = filmsdto.Year,
@@ -148,18 +131,17 @@ namespace Filmary.Web.Controllers
         }
 
         public async Task<IActionResult> FilmsWatchedStatus(int status)
-        {  
-        var username = User.Identity.Name;
-        var user = await _userManager.FindByNameAsync(username);
-        var profile = await _profileService.GetProfileByUserId(user.Id);
+        {
+            var username = User.Identity.Name;
+            var user = await _userManager.FindByNameAsync(username);
+            var profile = await _profileService.GetProfileByUserId(user.Id);
             var Filmsdto = await _filmsService.GetFilmStatusAsync(profile.Id, status);
 
             var filmsViewsModels = new List<FilmsViewModel>();
 
             foreach (var filmsApi in Filmsdto)
             {
-
-               var ApiFilmsView = await _IApiService.GetInfoFilmsAsync(filmsApi.FilmsId);
+                var ApiFilmsView = await _IApiService.GetInfoFilmsAsync(filmsApi.FilmsId);
                 var pic = "https://image.tmdb.org/t/p/w500" + ApiFilmsView.poster_path;
 
                 filmsViewsModels.Add(new FilmsViewModel
@@ -173,8 +155,6 @@ namespace Filmary.Web.Controllers
             return View(filmsViewsModels);
         }
 
-
-
         public async Task<IActionResult> FilmsDel(int ID)
         {
             var username = User.Identity.Name;
@@ -184,26 +164,14 @@ namespace Filmary.Web.Controllers
 
             var model = new Filmsdto
             {
-
                 FilmsName = Filmsdto.title,
                 FilmsId = Filmsdto.id
-             
             };
 
             await _filmsService.DeleteAsync(model, profile);
 
             return RedirectToAction("FilmsInfo", "Films", new { id = ID });
         }
-
-
-
-
-
-
-
-
-
-
 
         ///// <summary>
         ///// Change Film model
@@ -216,37 +184,33 @@ namespace Filmary.Web.Controllers
         //    var profile = await _profileService.GetProfileByUserId(user.Id);
         //    var filmsdto = await _filmsService.GetFilmsAsync(profile.Id);
 
-
-        //    //var model = new FilmsViewModel { 
+        //    //var model = new FilmsViewModel {
         //    var filmsViewsModels = new List<FilmsViewModel>();
 
         //    foreach (var Filmsdto in filmsdto)
         //    {
         //        filmsViewsModels.Add(new FilmsViewModel
         //        {
-
-        //            FilmsName = filmsdto.FilmsName, 
-        //            Year = filmsdto.Year, 
-        //            Scenario = filmsdto.Scenario, 
-        //            Producer = filmsdto.Producer, 
-        //            Budget = filmsdto.Budget, 
-        //            Premiere = filmsdto.Premiere, 
+        //            FilmsName = filmsdto.FilmsName,
+        //            Year = filmsdto.Year,
+        //            Scenario = filmsdto.Scenario,
+        //            Producer = filmsdto.Producer,
+        //            Budget = filmsdto.Budget,
+        //            Premiere = filmsdto.Premiere,
         //            Duration = filmsdto.Duration,
-        //            Description = filmsdto.Description, 
-        //            Picture = filmsdto.Picture, 
-        //            Rating = filmsdto.Rating 
+        //            Description = filmsdto.Description,
+        //            Picture = filmsdto.Picture,
+        //            Rating = filmsdto.Rating
         //        });
         //    }
         //    return View(filmsViewsModels);
         //}
-
 
         //[HttpGet]
         //public IActionResult Create()
         //{
         //    return View();
         //}
-
 
         /// <summary>
         /// Edit editFilms
@@ -282,9 +246,5 @@ namespace Filmary.Web.Controllers
         //    await _filmsService.Edit(films);
         //    return RedirectToAction("Films");
         // }
-
-
-
     }
 }
-

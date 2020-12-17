@@ -18,8 +18,5 @@
         /// </summary>
 
         public int FilmId { get; set; }
-
-
-
     }
 }

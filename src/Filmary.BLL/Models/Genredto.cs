@@ -12,6 +12,5 @@
         /// GenreName
         /// </summary>
         public string GenreName { get; set; }
-
     }
 }

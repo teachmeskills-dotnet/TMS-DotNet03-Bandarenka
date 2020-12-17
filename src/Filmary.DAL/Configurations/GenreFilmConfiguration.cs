@@ -19,12 +19,11 @@ namespace Filmary.DAL.Configurations
             builder.ToTable(TableConstants.GenreFilm)
                 .HasKey(GenreFilm => GenreFilm.Id);
 
-
             builder.HasOne(GenreFilm => GenreFilm.Genre)
                .WithMany(Genre => Genre.GenreFilms)
                .HasForeignKey(GenreFilm => GenreFilm.GenreId)
                .OnDelete(DeleteBehavior.Restrict);
-                        
+
             builder.HasOne(GenreFilm => GenreFilm.Films)
              .WithMany(Films => Films.GenreFilms)
              .HasForeignKey(GenreFilms => GenreFilms.FilmId)

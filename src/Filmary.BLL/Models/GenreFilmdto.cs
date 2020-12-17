@@ -13,12 +13,9 @@
         /// </summary>
         public int GenreId { get; set; }
 
-
         /// <summary>
         /// Films identifier.
         /// </summary>
         public int FilmId { get; set; }
-
-
     }
 }

@@ -13,7 +13,6 @@
         /// </summary>
         public int ProfileId { get; set; }
 
-
         /// <summary>
         /// FilmId identifier.
         /// </summary>

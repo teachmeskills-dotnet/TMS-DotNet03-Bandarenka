@@ -7,7 +7,6 @@ namespace Filmary.DAL.Models
   /// </summary>
     public class Profile : IHasDbIdentity, IHasUserIdentity
     {
-
         /// <inheritdoc/>
         public int Id { get; set; }
 

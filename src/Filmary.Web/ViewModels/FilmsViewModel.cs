@@ -60,7 +60,5 @@ namespace Filmary.Web.ViewModels
         /// Rating
         /// </summary>
         public bool Button { get; set; }
-
     }
 }
-

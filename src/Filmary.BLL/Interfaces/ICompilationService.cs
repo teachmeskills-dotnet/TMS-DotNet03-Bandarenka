@@ -1,5 +1,4 @@
-﻿
-using Filmary.BLL.Models;
+﻿using Filmary.BLL.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -25,6 +24,7 @@ namespace ICompilationService.BLL.Interfaces
         /// <param name="id"></param>
         /// <param name="UserId"></param>
         Task<Compilationdto> GetCompilationAsync(int id, int profileId);
+
         /// <summary>
         /// Get Compilation from base
         /// </summary>

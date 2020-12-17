@@ -6,7 +6,5 @@
         /// User Full Name.
         /// </summary>
         public string FullName { get; set; }
-
-
     }
 }
