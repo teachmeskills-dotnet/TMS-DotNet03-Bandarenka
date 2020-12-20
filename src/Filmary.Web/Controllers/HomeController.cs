@@ -24,6 +24,10 @@ namespace Filmary.Web.Controllers
             foreach (var FilmsWeek in topFilms)
             {
                 var pic = "https://image.tmdb.org/t/p/w500" + FilmsWeek.poster_path;
+                if (FilmsWeek.poster_path == null)
+                {
+                    pic = "/img/noposter.jpg";
+                }
                 if (FilmsWeek.name != null)
                 {
                     FilmsTopViewsModels.Add(new HomeViewModel

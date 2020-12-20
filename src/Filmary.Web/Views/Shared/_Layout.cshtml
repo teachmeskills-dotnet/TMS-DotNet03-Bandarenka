@@ -28,33 +28,25 @@
 
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <form asp-controller="Films" asp-action="FilmsWatchedStatus" asp-route-status="1">
-                            <button type="submit" class="btn btn-secondary indent">Хочу посмотреть</button>
+                            <button type="submit" class="btn btn-secondary indent">I want to see</button>
                         </form>
 
                         <form asp-controller="Films" asp-action="FilmsWatchedStatus" asp-route-status="2">
-                            <button type="submit" class="btn btn-secondary indent">Просмотрен</button>
+                            <button type="submit" class="btn btn-secondary indent">Looked</button>
                         </form>
                     </div>
-                    @*<ul class="menu">
-                            <li>
 
-                                <a href=#>Menu</a>
-                                <ul class="submenu">
-                                    <li><a button class="button" type="submit" asp-controller="Films" asp-action="Films">My film selections</a></li>
-                                    <li><a href=#>I want to see</a></li>
-                                    <li><a href=#>Movies watched</a></li>
-                                </ul>
-                            </li>
-                        </ul>*@
+
+
                     <div class="auth">
 
                         <span class="auth__name">@User.Identity.Name</span>
 
-                        @*<a button class="button" type="submit" asp-controller="Profile" asp-action="Profile">Edit</a>*@
+              
                         <a button type="submit" class="btn btn-outline-dark indent" asp-controller="Profile" asp-action="Profile">Edit</a>
 
                         <form method="post" asp-controller="Account" asp-action="Logout">
-                            @*<button class="button" type="submit">Logout</button>*@
+                        
                             <button type="submit" class="btn btn-outline-dark indent">Logout</button>
                         </form>
                     </div>
@@ -63,9 +55,7 @@
                 else
                 {
                     <div class="auth">
-                        @*<a class="link" asp-controller="Account" asp-action="Login">Login</a>
-                            <a class="button button__link" asp-controller="Account" asp-action="Register">Register</a>*@
-
+                 
                         <a class="btn btn-outline-dark indent" asp-controller="Account" asp-action="Login">Login</a>
                         <a class="btn btn-outline-dark indent" asp-controller="Account" asp-action="Register">Register</a>
                     </div>

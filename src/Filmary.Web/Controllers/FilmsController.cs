@@ -45,10 +45,10 @@ namespace Filmary.Web.Controllers
             {
                 var pic = "https://image.tmdb.org/t/p/w500" + FilmsWeek.poster_path;
 
-                //if (FilmsWeek.poster_path == null)
-                //{
-                //    pic = @"file:///D:/TMS-DotNet03-Bandarenka/src/Filmary.Web/wwwroot/img/no_poster.jpg";
-                //}
+                if (FilmsWeek.poster_path == null)
+                {
+                    pic = "/img/noposter.jpg";
+                }
                 if (FilmsWeek.name != null)
                 {
                     FilmsTopViewsModels.Add(new HomeViewModel
@@ -85,7 +85,10 @@ namespace Filmary.Web.Controllers
 
             var FilmInfo = await _IApiService.GetInfoFilmsAsync(ID);
             var pic = "https://image.tmdb.org/t/p/w500" + FilmInfo.poster_path;
-
+            if (FilmInfo.poster_path == null)
+            {
+                pic = "/img/noposter.jpg";
+            }
             var FilmInfoModel = new FilmsViewModel
             {
                 FilmsName = FilmInfo.title,
@@ -143,7 +146,10 @@ namespace Filmary.Web.Controllers
             {
                 var ApiFilmsView = await _IApiService.GetInfoFilmsAsync(filmsApi.FilmsId);
                 var pic = "https://image.tmdb.org/t/p/w500" + ApiFilmsView.poster_path;
-
+                if (ApiFilmsView.poster_path == null)
+                {
+                    pic = "/img/noposter.jpg";
+                }
                 filmsViewsModels.Add(new FilmsViewModel
                 {
                     Id = filmsApi.FilmsId,
@@ -173,78 +179,5 @@ namespace Filmary.Web.Controllers
             return RedirectToAction("FilmsInfo", "Films", new { id = ID });
         }
 
-        ///// <summary>
-        ///// Change Film model
-        ///// </summary>
-        ///// <returns>User model</returns>
-        //public async Task<IActionResult> EditFilms()
-        //{
-        //    var username = User.Identity.Name;
-        //    var user = await _userManager.FindByNameAsync(username);
-        //    var profile = await _profileService.GetProfileByUserId(user.Id);
-        //    var filmsdto = await _filmsService.GetFilmsAsync(profile.Id);
-
-        //    //var model = new FilmsViewModel {
-        //    var filmsViewsModels = new List<FilmsViewModel>();
-
-        //    foreach (var Filmsdto in filmsdto)
-        //    {
-        //        filmsViewsModels.Add(new FilmsViewModel
-        //        {
-        //            FilmsName = filmsdto.FilmsName,
-        //            Year = filmsdto.Year,
-        //            Scenario = filmsdto.Scenario,
-        //            Producer = filmsdto.Producer,
-        //            Budget = filmsdto.Budget,
-        //            Premiere = filmsdto.Premiere,
-        //            Duration = filmsdto.Duration,
-        //            Description = filmsdto.Description,
-        //            Picture = filmsdto.Picture,
-        //            Rating = filmsdto.Rating
-        //        });
-        //    }
-        //    return View(filmsViewsModels);
-        //}
-
-        //[HttpGet]
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        /// <summary>
-        /// Edit editFilms
-        /// </summary>
-        /// <param name="editFilms"></param>
-        /// <returns>Result edit films</returns>
-        //[Authorize]
-        //[HttpPost]
-
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> EditFilms(FilmsViewModel editFilms)
-        //{
-        //    var username = User.Identity.Name;
-        //    var user = await _userManager.FindByNameAsync(username);
-        //    var profile = await _profileService.GetProfileByUserId(user.Id);
-        //    var filmsdto = await _filmsService.GetFilmsAsync(profile.Id);
-
-        //    var films = new Filmsdto
-        //    {
-        //        Id = filmsdto.Id,
-        //        FilmsName = filmsdto.FilmsName,
-        //        Year = filmsdto.Year,
-        //        Scenario = filmsdto.Scenario,
-        //        Producer = filmsdto.Producer,
-        //        Budget = filmsdto.Budget,
-        //        Premiere = filmsdto.Premiere,
-        //        Duration = filmsdto.Duration,
-        //        Description = filmsdto.Description,
-        //        Picture = filmsdto.Picture,
-        //        Rating = filmsdto.Rating,
-        //    };
-
-        //    await _filmsService.Edit(films);
-        //    return RedirectToAction("Films");
-        // }
     }
 }

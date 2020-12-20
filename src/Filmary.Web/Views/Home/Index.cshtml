@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="~/css/app.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Filmary</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -13,49 +14,69 @@
 <body>
 
     <header>
-        @*<div class=".container-sm"><a class="Filmary" href="#">Filmary</a></div>*@
+
+
+      
+
+
         <div class=".container-sm">
-            <div class="jumbotron">
-                <h3 class="text-center">
-                    Search movies
-                </h3>
-                @*<form id="search-form">*@
+            
+            <h3 class="text-left">
+                Search movies
+            </h3>
+                
 
                 <form method="post" asp-controller="Films" asp-action="SearchFilms">
-                    <input type="text" name="search" class="form-control" placeholder="Enter the title of the movie...">
+                    <input type="text" name="search" class="qwerty marginsearch" placeholder="Search..." />
+
                 </form>
             </div>
-        </div>
-        <div class=".container-sm">
-            <h3 class="Filmary col-12 text-center text-info title">Топ фильмов за неделю!</h3>
-            <div class="row">
 
-                @*<script src="~/js/script.js"></script>*@
 
-                @if (Model.Any())
-                {
-                    foreach (var FilmTop in Model)
+
+  
+            <div class=".container-sm">
+                <h3 class="Filmary col-12 text-center text-info title">Топ фильмов за неделю!</h3>
+                <div class="row">
+
+
+
+
+
+
+               
+
+                    @if (Model.Any())
                     {
+                        foreach (var FilmTop in Model)
+                        {
 
-                        <form class="col-md-6 col-lg-4 col-xl-2 item" asp-controller="Home" asp-action="Index">
+                            <form class="col-md-6 col-lg-4 col-xl-2 item" asp-controller="Home" asp-action="Index">
 
-                            <div>
-                                <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
-                                    <img src="@FilmTop.Picture" />
-                                </a>
-                                <p> @FilmTop.FilmsName</p>
-                                @*<img src=@FilmTop.Picture >*@
-                            </div>
-                        </form>
+                                <div>
+                                    <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
+                                        <img src="@FilmTop.Picture" />
+                                    </a>
 
+
+                                    <p>
+                                        @FilmTop.FilmsName
+
+
+
+                                    </p>
+
+                                </div>
+                            </form>
+
+                        }
                     }
-                }
-                else
-                {
-                    <h1>Список фильмов пуст</h1>
-                }
+                    else
+                    {
+                <div class="Harry"> Oops ... :( Movie list is empty</div>
+                    }
+                </div>
             </div>
-        </div>
-    </header>
+</header>
 </body>
 </html>
