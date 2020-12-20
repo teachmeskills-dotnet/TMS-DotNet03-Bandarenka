@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Filmary.DAL.Migrations
 {
     [DbContext(typeof(FilmaryDbContext))]
-    [Migration("20201208090204_addID")]
-    partial class addID
+    [Migration("20201220153445_newmigration")]
+    partial class newmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -154,7 +154,6 @@ namespace Filmary.DAL.Migrations
                         .HasMaxLength(127);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(127)")
                         .HasMaxLength(127);
 
@@ -167,12 +166,10 @@ namespace Filmary.DAL.Migrations
                         .HasMaxLength(127);
 
                     b.Property<string>("FilmsName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(127)")
                         .HasMaxLength(127);
 
                     b.Property<string>("Picture")
-                        .IsRequired()
                         .HasColumnType("nvarchar(127)")
                         .HasMaxLength(127);
 
