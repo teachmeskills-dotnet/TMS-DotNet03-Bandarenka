@@ -1,10 +1,8 @@
-﻿
-using Filmary.Common.Contants;
+﻿using Filmary.Common.Contants;
 using Filmary.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-
 
 namespace Filmary.DAL.Configurations
 {
@@ -20,7 +18,6 @@ namespace Filmary.DAL.Configurations
 
             builder.ToTable(TableConstants.Status)
                 .HasKey(Status => Status.Id);
-
 
             builder.Property(Status => Status.StatusName)
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);

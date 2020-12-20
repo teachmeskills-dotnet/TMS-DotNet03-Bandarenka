@@ -1,7 +1,4 @@
 ﻿using Filmary.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Filmary.DAL.Models
 {
@@ -9,6 +6,7 @@ namespace Filmary.DAL.Models
     {
         /// <inheritdoc/>
         public int Id { get; set; }
+
         /// <inheritdoc/>
         public int CompilationId { get; set; }
 

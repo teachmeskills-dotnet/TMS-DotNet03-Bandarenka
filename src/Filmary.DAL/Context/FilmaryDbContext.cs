@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace Filmary.Common
+namespace Filmary.Context
 {
     public class FilmaryDbContext : IdentityDbContext<User>
     {
@@ -29,7 +29,7 @@ namespace Filmary.Common
         public DbSet<Profile> ArtistFilm { get; set; }
 
         /// <summary>
-        /// Compilation 
+        /// Compilation
         /// </summary>
         public DbSet<Profile> Compilation { get; set; }
 
@@ -95,7 +95,6 @@ namespace Filmary.Common
             modelBuilder.ApplyConfiguration(new ProducerConfiguration());
             modelBuilder.ApplyConfiguration(new ProducerFilmConfiguration());
             modelBuilder.ApplyConfiguration(new StatusConfiguration());
-
 
             base.OnModelCreating(modelBuilder);
         }

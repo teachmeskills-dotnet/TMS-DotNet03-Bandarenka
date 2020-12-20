@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Filmary.DAL.Migrations
 {
-    public partial class identity : Migration
+    public partial class newmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ArtistName = table.Column<string>(nullable: true)
+                    ArtistName = table.Column<string>(maxLength: 127, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,7 +65,7 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CountryName = table.Column<string>(nullable: true)
+                    CountryName = table.Column<string>(maxLength: 127, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,16 +78,17 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FilmsName = table.Column<string>(nullable: true),
-                    Year = table.Column<string>(nullable: true),
-                    Scenario = table.Column<string>(nullable: true),
-                    Producer = table.Column<string>(nullable: true),
-                    Budget = table.Column<string>(nullable: true),
-                    Premiere = table.Column<string>(nullable: true),
-                    Duration = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Picture = table.Column<string>(nullable: true),
-                    Rating = table.Column<string>(nullable: true)
+                    FilmsId = table.Column<int>(maxLength: 127, nullable: false),
+                    FilmsName = table.Column<string>(maxLength: 127, nullable: true),
+                    Year = table.Column<DateTime>(maxLength: 127, nullable: false),
+                    Scenario = table.Column<string>(maxLength: 127, nullable: true),
+                    Producer = table.Column<string>(maxLength: 127, nullable: true),
+                    Budget = table.Column<string>(maxLength: 127, nullable: true),
+                    Premiere = table.Column<DateTime>(maxLength: 127, nullable: false),
+                    Duration = table.Column<string>(maxLength: 127, nullable: true),
+                    Description = table.Column<string>(maxLength: 127, nullable: true),
+                    Picture = table.Column<string>(maxLength: 127, nullable: true),
+                    Rating = table.Column<string>(maxLength: 127, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -100,7 +101,7 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    GenreName = table.Column<string>(nullable: true)
+                    GenreName = table.Column<string>(maxLength: 127, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -113,7 +114,7 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProducerName = table.Column<string>(nullable: true)
+                    ProducerName = table.Column<string>(maxLength: 127, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,8 +234,7 @@ namespace Filmary.DAL.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(maxLength: 127, nullable: false),
-                    Email = table.Column<string>(nullable: true)
+                    FullName = table.Column<string>(maxLength: 127, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -254,7 +254,7 @@ namespace Filmary.DAL.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ArtistId = table.Column<int>(nullable: false),
-                    FilmsId = table.Column<int>(nullable: false)
+                    FilmId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -264,13 +264,13 @@ namespace Filmary.DAL.Migrations
                         column: x => x.ArtistId,
                         principalTable: "Artist",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ArtistFilm_Films_FilmsId",
-                        column: x => x.FilmsId,
+                        name: "FK_ArtistFilm_Films_FilmId",
+                        column: x => x.FilmId,
                         principalTable: "Films",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -280,7 +280,7 @@ namespace Filmary.DAL.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CountryId = table.Column<int>(nullable: false),
-                    FilmsId = table.Column<int>(nullable: false)
+                    FilmId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -290,13 +290,13 @@ namespace Filmary.DAL.Migrations
                         column: x => x.CountryId,
                         principalTable: "Country",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_CountryFilm_Films_FilmsId",
-                        column: x => x.FilmsId,
+                        name: "FK_CountryFilm_Films_FilmId",
+                        column: x => x.FilmId,
                         principalTable: "Films",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -306,23 +306,23 @@ namespace Filmary.DAL.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     GenreId = table.Column<int>(nullable: false),
-                    FilmsId = table.Column<int>(nullable: false)
+                    FilmId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_GenreFilm", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GenreFilm_Films_FilmsId",
-                        column: x => x.FilmsId,
+                        name: "FK_GenreFilm_Films_FilmId",
+                        column: x => x.FilmId,
                         principalTable: "Films",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_GenreFilm_Genre_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genre",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -332,23 +332,23 @@ namespace Filmary.DAL.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProducerId = table.Column<int>(nullable: false),
-                    FilmsId = table.Column<int>(nullable: false)
+                    FilmId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProducerFilm", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProducerFilm_Films_FilmsId",
-                        column: x => x.FilmsId,
+                        name: "FK_ProducerFilm_Films_FilmId",
+                        column: x => x.FilmId,
                         principalTable: "Films",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ProducerFilm_Producer_ProducerId",
                         column: x => x.ProducerId,
                         principalTable: "Producer",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -357,7 +357,7 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
+                    CompilationName = table.Column<string>(maxLength: 127, nullable: true),
                     ProfileId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -368,7 +368,7 @@ namespace Filmary.DAL.Migrations
                         column: x => x.ProfileId,
                         principalTable: "Profile",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -379,15 +379,14 @@ namespace Filmary.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProfileId = table.Column<int>(nullable: false),
                     FilmId = table.Column<int>(nullable: false),
-                    FilmsId = table.Column<int>(nullable: true),
-                    StatusName = table.Column<int>(nullable: false)
+                    StatusName = table.Column<int>(maxLength: 127, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Status", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Status_Films_FilmsId",
-                        column: x => x.FilmsId,
+                        name: "FK_Status_Films_FilmId",
+                        column: x => x.FilmId,
                         principalTable: "Films",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -396,7 +395,7 @@ namespace Filmary.DAL.Migrations
                         column: x => x.ProfileId,
                         principalTable: "Profile",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -405,23 +404,21 @@ namespace Filmary.DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CompilationId = table.Column<string>(nullable: true),
-                    CompilationId1 = table.Column<int>(nullable: true),
-                    FilmId = table.Column<string>(nullable: true),
-                    FilmsId = table.Column<int>(nullable: true)
+                    CompilationId = table.Column<int>(nullable: false),
+                    FilmId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CompilationFilm", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CompilationFilm_Compilation_CompilationId1",
-                        column: x => x.CompilationId1,
+                        name: "FK_CompilationFilm_Compilation_CompilationId",
+                        column: x => x.CompilationId,
                         principalTable: "Compilation",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_CompilationFilm_Films_FilmsId",
-                        column: x => x.FilmsId,
+                        name: "FK_CompilationFilm_Films_FilmId",
+                        column: x => x.FilmId,
                         principalTable: "Films",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -433,9 +430,9 @@ namespace Filmary.DAL.Migrations
                 column: "ArtistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ArtistFilm_FilmsId",
+                name: "IX_ArtistFilm_FilmId",
                 table: "ArtistFilm",
-                column: "FilmsId");
+                column: "FilmId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -482,14 +479,14 @@ namespace Filmary.DAL.Migrations
                 column: "ProfileId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CompilationFilm_CompilationId1",
+                name: "IX_CompilationFilm_CompilationId",
                 table: "CompilationFilm",
-                column: "CompilationId1");
+                column: "CompilationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CompilationFilm_FilmsId",
+                name: "IX_CompilationFilm_FilmId",
                 table: "CompilationFilm",
-                column: "FilmsId");
+                column: "FilmId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CountryFilm_CountryId",
@@ -497,14 +494,14 @@ namespace Filmary.DAL.Migrations
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryFilm_FilmsId",
+                name: "IX_CountryFilm_FilmId",
                 table: "CountryFilm",
-                column: "FilmsId");
+                column: "FilmId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GenreFilm_FilmsId",
+                name: "IX_GenreFilm_FilmId",
                 table: "GenreFilm",
-                column: "FilmsId");
+                column: "FilmId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GenreFilm_GenreId",
@@ -512,9 +509,9 @@ namespace Filmary.DAL.Migrations
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProducerFilm_FilmsId",
+                name: "IX_ProducerFilm_FilmId",
                 table: "ProducerFilm",
-                column: "FilmsId");
+                column: "FilmId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProducerFilm_ProducerId",
@@ -528,9 +525,9 @@ namespace Filmary.DAL.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Status_FilmsId",
+                name: "IX_Status_FilmId",
                 table: "Status",
-                column: "FilmsId");
+                column: "FilmId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Status_ProfileId",

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-
 namespace Filmary.DAL.Configurations
 {
     /// <summary>
@@ -20,11 +19,9 @@ namespace Filmary.DAL.Configurations
             builder.ToTable(TableConstants.Artist)
                 .HasKey(Artist => Artist.Id);
 
-            
             builder.Property(Artist => Artist.ArtistName)
                 .IsRequired()
                 .HasMaxLength(ConfigurationContants.SqlMaxLengthMedium);
-
         }
     }
 }

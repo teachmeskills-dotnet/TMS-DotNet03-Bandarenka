@@ -26,6 +26,5 @@ namespace Filmary.DAL.Models
         /// Navigation to Films.
         /// </summary>
         public Films Films { get; set; }
-
     }
 }

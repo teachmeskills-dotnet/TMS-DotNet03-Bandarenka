@@ -10,6 +10,11 @@ namespace Filmary.DAL.Models
         public int Id { get; set; }
 
         /// <summary>
+        /// FilmsApiID
+        /// </summary>
+        public int FilmsId { get; set; }
+
+        /// <summary>
         /// FilmsName
         /// </summary>
         public string FilmsName { get; set; }
@@ -88,9 +93,5 @@ namespace Filmary.DAL.Models
         /// Navigation to Status
         /// </summary>
         public ICollection<Status> Statuses { get; set; }
-
-
-
-
     }
 }

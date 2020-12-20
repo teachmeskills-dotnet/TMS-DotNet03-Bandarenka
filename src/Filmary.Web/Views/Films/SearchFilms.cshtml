@@ -1,0 +1,117 @@
+﻿@*@if (User.Identity.IsAuthenticated)
+    {
+      <p>@User.Identity.Name</p>
+
+      <form method="post" asp-controller="Account" asp-action="Logout">
+        <button type="submit">Exit</button>
+      </form>
+    }
+    else
+    {
+      <a asp-controller="Account" asp-action="Login">Login</a>
+      <a asp-controller="Account" asp-action="Register">Register</a>
+
+    }@{
+      ViewData["Title"] = "Index page";
+    }
+
+    <h1 style="margin-bottom: 8px">Welcome!</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+      <a class="button button__link" asp-controller="Todo" asp-action="Index">Go to todos</a>
+    }*@
+
+@*@if (User.Identity.IsAuthenticated)
+    {
+      <p>@User.Identity.Name</p>
+
+      <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Изменить</a>
+
+      <form method="post" asp-controller="Account" asp-action="Logout">
+        <button type="submit">Выход</button>
+      </form>
+    }
+    else
+    {
+      <a asp-controller="Account" asp-action="Login">Войти</a>
+      <a asp-controller="Account" asp-action="Register">Зарегистрироваться</a>*@
+@model IEnumerable<HomeViewModel>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+    @*<div class=".container-sm"><a class="Filmary" href="#">Filmary</a></div>*@
+    <div class=".container-sm">
+
+
+        <div class=".container-sm">
+
+            <h3 class="text-left">
+                Search movies
+            </h3>
+
+
+            <form method="post" asp-controller="Films" asp-action="SearchFilms">
+                <input type="text" name="search" class="qwerty marginsearch" placeholder="Search..." />
+
+            </form>
+        </div>
+
+
+
+        @*<div class="jumbotron">
+            <h3 class="text-center">
+                Search movies
+            </h3>
+
+            <form method="post" asp-controller="Films" asp-action="SearchFilms">
+                <input type="text" name="search" class="form-control" placeholder="Enter the title of the movie...">
+            </form>
+        </div>*@
+
+
+
+
+    </div>
+    <div class=".container-sm">
+        <div class="row" id="movies">
+
+            @*<script src="~/js/script.js"></script>*@
+
+            @if (Model.Any())
+            {
+                foreach (var FilmTop in Model)
+                {
+
+                    <form class="col-md-6 col-lg-4 col-xl-2 item">
+
+                        <div>
+
+                            <a asp-controller="Films" asp-action="FilmsInfo" asp-route-id="@FilmTop.ID">
+                                <img src="@FilmTop.Picture" />
+                            </a>
+                            <p> @FilmTop.FilmsName</p>
+                        </div>
+                    </form>
+
+                }
+            }
+
+            else
+            {
+        <div class="Harry"> Oops ... :( Movie list is empty</div>
+            }
+        </div>
+    </div>
+</body>
+</html>

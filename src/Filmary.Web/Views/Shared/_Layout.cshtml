@@ -4,9 +4,67 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/css/app.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    @RenderSection("css", false)
 </head>
 <body>
-    <div>
+
+    <header>
+
+        <div class="wrapper">
+            <div class="header header__indent-bottom">
+
+                <a class="logo" asp-controller="Home" asp-action="Index">FILMARY</a>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <form asp-controller="Films" asp-action="FilmsWatchedStatus" asp-route-status="1">
+                            <button type="submit" class="btn btn-secondary indent">I want to see</button>
+                        </form>
+
+                        <form asp-controller="Films" asp-action="FilmsWatchedStatus" asp-route-status="2">
+                            <button type="submit" class="btn btn-secondary indent">Looked</button>
+                        </form>
+                    </div>
+
+
+
+                    <div class="auth">
+
+                        <span class="auth__name">@User.Identity.Name</span>
+
+              
+                        <a button type="submit" class="btn btn-outline-dark indent" asp-controller="Profile" asp-action="Profile">Edit</a>
+
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                        
+                            <button type="submit" class="btn btn-outline-dark indent">Logout</button>
+                        </form>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="auth">
+                 
+                        <a class="btn btn-outline-dark indent" asp-controller="Account" asp-action="Login">Login</a>
+                        <a class="btn btn-outline-dark indent" asp-controller="Account" asp-action="Register">Register</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
         @RenderBody()
     </div>
 </body>
