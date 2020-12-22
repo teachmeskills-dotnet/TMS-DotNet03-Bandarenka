@@ -12,8 +12,6 @@
     margin-right: 5px;
 }
 
-
-
 a {
     text-decoration: none;
 }
@@ -29,8 +27,6 @@ body {
     padding: 0;
 }
 
-
-
 h1 {
     color: #242e4C;
 }
@@ -38,10 +34,7 @@ h1 {
 .wrapper {
     width: 1000px;
     margin: 0 auto;
-   
 }
-
-
 
 h3 {
     font-family: "20179";
@@ -139,8 +132,6 @@ h3 {
     margin-bottom: 8px;
 }
 
-
-
 ul {
     display: block;
     margin: 0;
@@ -211,10 +202,12 @@ img {
     font-family: "HarryPotter";
     margin-top: 30px;
 }
+
 .marginsearch {
     margin-top: 10px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
+
 .spinner {
     margin: 0 auto;
     width: 64px;
@@ -283,7 +276,7 @@ a:hover {
 .Harry {
     font-family: "HarryPotter";
     font-size: 32px;
-    text-align:center;
+    text-align: center;
 }
 
 .viewed {
@@ -292,7 +285,6 @@ a:hover {
     margin-left: 5px;
     margin-right: 5px;
 }
-
 
 @font-face {
     font-family: "HarryPotter";

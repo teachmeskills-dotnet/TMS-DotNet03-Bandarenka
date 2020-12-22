@@ -24,6 +24,4 @@ namespace Filmary.BLL.Api.Models
         public string first_air_date { get; set; }
         public IList<string> origin_country { get; set; }
     }
-
-  
 }

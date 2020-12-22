@@ -6,7 +6,6 @@ namespace Filmary.BLL.Api.Interfaces
 {
     public interface IApiService
     {
-     
         Task<IEnumerable<Result>> GetResultFilmsAsync(string search);
 
         Task<IEnumerable<Result>> GetTopFilmsAsync();

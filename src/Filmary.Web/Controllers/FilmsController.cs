@@ -178,6 +178,5 @@ namespace Filmary.Web.Controllers
 
             return RedirectToAction("FilmsInfo", "Films", new { id = ID });
         }
-
     }
 }

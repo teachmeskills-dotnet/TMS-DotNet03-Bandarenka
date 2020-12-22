@@ -36,17 +36,14 @@
                         </form>
                     </div>
 
-
-
                     <div class="auth">
 
                         <span class="auth__name">@User.Identity.Name</span>
 
-              
                         <a button type="submit" class="btn btn-outline-dark indent" asp-controller="Profile" asp-action="Profile">Edit</a>
 
                         <form method="post" asp-controller="Account" asp-action="Logout">
-                        
+
                             <button type="submit" class="btn btn-outline-dark indent">Logout</button>
                         </form>
                     </div>
@@ -55,7 +52,7 @@
                 else
                 {
                     <div class="auth">
-                 
+
                         <a class="btn btn-outline-dark indent" asp-controller="Account" asp-action="Login">Login</a>
                         <a class="btn btn-outline-dark indent" asp-controller="Account" asp-action="Register">Register</a>
                     </div>

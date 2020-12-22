@@ -11,11 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Filmary.Web", "src\Filmary.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Filmary.Common", "src\Filmary.Common\Filmary.Common.csproj", "{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApiApp", "TestApiApp\TestApiApp.csproj", "{6C69F733-4ABC-4E13-85C6-F91CD1F9FAD2}"
-	ProjectSection(ProjectDependencies) = postProject
-		{AF7F4D00-9A5F-4F63-A03B-3036ADE28867} = {AF7F4D00-9A5F-4F63-A03B-3036ADE28867}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,10 +33,6 @@ Global
 		{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C69F733-4ABC-4E13-85C6-F91CD1F9FAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C69F733-4ABC-4E13-85C6-F91CD1F9FAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C69F733-4ABC-4E13-85C6-F91CD1F9FAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C69F733-4ABC-4E13-85C6-F91CD1F9FAD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

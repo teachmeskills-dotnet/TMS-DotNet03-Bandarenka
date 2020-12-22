@@ -15,36 +15,20 @@
 
     <header>
 
-
-      
-
-
         <div class=".container-sm">
-            
+
             <h3 class="text-left">
                 Search movies
             </h3>
-                
 
                 <form method="post" asp-controller="Films" asp-action="SearchFilms">
                     <input type="text" name="search" class="qwerty marginsearch" placeholder="Search..." />
-
                 </form>
             </div>
 
-
-
-  
             <div class=".container-sm">
                 <h3 class="Filmary col-12 text-center text-info title">Топ фильмов за неделю!</h3>
                 <div class="row">
-
-
-
-
-
-
-               
 
                     @if (Model.Any())
                     {
@@ -58,14 +42,9 @@
                                         <img src="@FilmTop.Picture" />
                                     </a>
 
-
                                     <p>
                                         @FilmTop.FilmsName
-
-
-
                                     </p>
-
                                 </div>
                             </form>
 

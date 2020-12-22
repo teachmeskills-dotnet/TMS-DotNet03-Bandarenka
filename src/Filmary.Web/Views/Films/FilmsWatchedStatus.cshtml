@@ -2,13 +2,10 @@
 
 <body>
 
- 
-
     <div class=".container-sm">
 
         <div class="row">
 
-       
             @if (Model.Any())
             {
                 foreach (var FilmStatus in Model)
@@ -22,7 +19,6 @@
                                 <img src="@FilmStatus.Picture" />
                             </a>
                             <p> @FilmStatus.FilmsName</p>
-                            
                         </div>
                     </form>
 
