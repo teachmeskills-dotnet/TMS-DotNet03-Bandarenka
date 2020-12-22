@@ -1,12 +1,12 @@
-﻿using Filmary.BLL.Api.Helpers;
-using Filmary.BLL.Api.Interfaces;
-using Filmary.BLL.Api.Models;
+﻿using Filmary.ExternalApi.Helpers;
+using Filmary.ExternalApi.Interfaces;
+using Filmary.ExternalApi.Models;
 using Flurl;
 using Flurl.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Filmary.BLL.Api.Services
+namespace Filmary.ExternalApi.Services
 
 {
     /// <inheritdoc cref="IApiService"/>
@@ -16,7 +16,7 @@ namespace Filmary.BLL.Api.Services
         {
             var response = await Constants.searchFilmByName
                .SetQueryParams(new { api_key = "85a8787fd5a554d0bc0d4c24198e2702", language = "ru", query = search })
-               .GetJsonAsync<Example>();
+               .GetJsonAsync<Response>();
             var films = response.results;
             return films;
         }
@@ -25,7 +25,7 @@ namespace Filmary.BLL.Api.Services
         {
             var response = await Constants.topFilms
                .SetQueryParams(new { api_key = "85a8787fd5a554d0bc0d4c24198e2702", language = "ru" })
-               .GetJsonAsync<Example>();
+               .GetJsonAsync<Response>();
             var films = response.results;
             return films;
         }

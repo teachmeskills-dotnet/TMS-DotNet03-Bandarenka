@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Filmary.Web", "src\Filmary.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Filmary.Common", "src\Filmary.Common\Filmary.Common.csproj", "{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmary.ExternalApi", "src\Filmary.ExternalApi\Filmary.ExternalApi.csproj", "{69050D03-E0FA-4EC9-A019-CAA5E1485BB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B02F1C2-5961-4E4D-AB66-8F70503C69C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69050D03-E0FA-4EC9-A019-CAA5E1485BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69050D03-E0FA-4EC9-A019-CAA5E1485BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69050D03-E0FA-4EC9-A019-CAA5E1485BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69050D03-E0FA-4EC9-A019-CAA5E1485BB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

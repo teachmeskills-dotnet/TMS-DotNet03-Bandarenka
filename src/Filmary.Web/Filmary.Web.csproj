@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Filmary.BLL\Filmary.BLL.csproj" />
     <ProjectReference Include="..\Filmary.Common\Filmary.Common.csproj" />
+    <ProjectReference Include="..\Filmary.ExternalApi\Filmary.ExternalApi.csproj" />
   </ItemGroup>
 
 </Project>

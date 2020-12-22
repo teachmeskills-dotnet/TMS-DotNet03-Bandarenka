@@ -1,7 +1,7 @@
-﻿using Filmary.BLL.Api.Interfaces;
-using Filmary.BLL.Interfaces;
+﻿using Filmary.BLL.Interfaces;
 using Filmary.BLL.Models;
 using Filmary.DAL.Models;
+using Filmary.ExternalApi.Interfaces;
 using Filmary.Web.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

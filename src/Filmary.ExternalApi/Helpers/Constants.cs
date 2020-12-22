@@ -1,4 +1,4 @@
-﻿namespace Filmary.BLL.Api.Helpers
+﻿namespace Filmary.ExternalApi.Helpers
 {
     internal class Constants
     {

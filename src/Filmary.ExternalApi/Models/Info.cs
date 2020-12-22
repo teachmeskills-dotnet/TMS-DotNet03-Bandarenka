@@ -1,7 +1,7 @@
 ﻿using Filmary.DAL.Models;
 using System.Collections.Generic;
 
-namespace Filmary.BLL.Api.Models
+namespace Filmary.ExternalApi.Models
 {
     public class Info
     {

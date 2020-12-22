@@ -1,8 +1,8 @@
-﻿using Filmary.BLL.Api.Models;
+﻿using Filmary.ExternalApi.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Filmary.BLL.Api.Interfaces
+namespace Filmary.ExternalApi.Interfaces
 {
     public interface IApiService
     {

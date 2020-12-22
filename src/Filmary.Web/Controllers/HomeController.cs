@@ -1,4 +1,4 @@
-﻿using Filmary.BLL.Api.Interfaces;
+﻿using Filmary.ExternalApi.Interfaces;
 using Filmary.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;

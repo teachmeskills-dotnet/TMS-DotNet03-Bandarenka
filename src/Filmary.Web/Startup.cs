@@ -1,11 +1,11 @@
-using Filmary.BLL.Api.Interfaces;
-using Filmary.BLL.Api.Services;
 using Filmary.BLL.Interfaces;
 using Filmary.BLL.Repository;
 using Filmary.BLL.Services;
 using Filmary.Common.Interfaces;
 using Filmary.Context;
 using Filmary.DAL.Models;
+using Filmary.ExternalApi.Interfaces;
+using Filmary.ExternalApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

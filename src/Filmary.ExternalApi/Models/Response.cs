@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Filmary.BLL.Api.Models
+namespace Filmary.ExternalApi.Models
 {
-    public class Example
+    public class Response
     {
         public int page { get; set; }
         public int total_results { get; set; }
