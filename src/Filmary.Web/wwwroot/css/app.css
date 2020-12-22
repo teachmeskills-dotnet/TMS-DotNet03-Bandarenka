@@ -1,0 +1,376 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+}
+
+.indent {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+body {
+    background: url("../img/tic-tac-toe.png") repeat;
+    font: 14px 'Verdana';
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #242e4C;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+h3 {
+    font-family: "20179";
+}
+
+.header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__indent-bottom {
+    margin-bottom: 32px;
+}
+
+.logo {
+    font-family: "HarryPotter";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    color: #242e4c;
+    text-decoration: none;
+}
+
+    .logo:hover {
+        text-decoration: none;
+    }
+
+.auth {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth__name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #242e4c;
+}
+
+.link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #152f46;
+    text-decoration: none;
+}
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+.button {
+    cursor: pointer;
+    padding: 6px 16px;
+    background: #152f46;
+    border-radius: 3px;
+    border: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+    .button:hover {
+        background: #2e5e87;
+    }
+
+.button__link {
+    text-decoration: none;
+}
+
+.input {
+    padding: 8px 16px;
+    border: 1px solid #BECCD4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #738188;
+}
+
+.indent__margin-bottom {
+    margin-bottom: 8px;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    ul:after {
+        display: block;
+        content: ' ';
+        clear: both;
+        float: none;
+    }
+
+    ul.menu > li {
+        float: left;
+        position: relative;
+    }
+
+        ul.menu > li > a {
+            display: block;
+            padding: 10px;
+            color: white;
+            background-color: red;
+            text-decoration: none;
+        }
+
+            ul.menu > li > a:hover {
+                background-color: black;
+            }
+
+a {
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.description {
+    margin-bottom: 30px;
+}
+
+.overview {
+    display: block;
+    margin-top: 20px;
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.item {
+    margin: 0;
+    text-align: center;
+}
+
+.Filmary {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #188348;
+    font-family: "HarryPotter";
+    margin-top: 30px;
+}
+
+.marginsearch {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.spinner {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    border-top: solid 5px #000;
+    border-bottom: solid 5px #000;
+    border-left: solid 5px #fff;
+    border-right: solid 5px #fff;
+    border-radius: 50%;
+    animation: spin 500ms linear;
+    animation-iteration-count: infinite;
+}
+
+.imgposter {
+    height: 30%;
+    width: 30%
+}
+
+.nonborder {
+    border: none;
+    height: 32px;
+    width: 32px;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+}
+
+.delete-link {
+    display: inline-block;
+    padding: 3px 5px;
+    border: 1px solid red;
+    background-color: #edbaba;
+    color: red;
+    text-decoration: none;
+}
+
+    .delete-link:hover {
+        background-color: #fff;
+        text-decoration: none;
+    }
+
+.need-to-confirm .confirmation {
+    display: none;
+    text-decoration: none;
+}
+
+.confirmed .maintext {
+    display: none;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.delete {
+    width: 28px;
+    height: 28px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: springgreen;
+}
+
+.Harry {
+    font-family: "HarryPotter";
+    font-size: 32px;
+    text-align: center;
+}
+
+.viewed {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@font-face {
+    font-family: "HarryPotter";
+    src: url("../fonts/HarryPotter.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "20179";
+    src: url("../fonts/20179.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.qwerty {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 250px;
+    height: 42px;
+    cursor: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    border: none;
+    -webkit-border-radius: 21px;
+    border-radius: 10px;
+    font: "Antic", Helvetica, sans-serif;
+    color: rgba(140, 140, 140, 1);
+    text-decoration: initial;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: rgba(40, 40, 40, 0.4);
+    -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
+    -webkit-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+    -moz-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+    -o-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+    transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+}
+
+    .qwerty:hover {
+        width: 350px;
+        opacity: 0.82;
+        color: rgba(181, 181, 181, 1);
+        background: rgba(0, 0, 0, 0.4);
+        -webkit-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+        -moz-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+        -o-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+        transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+    }
+
+    .qwerty:focus {
+        width: 490px;
+        cursor: default;
+        padding: -13px 20px 0;
+        color: rgba(255, 255, 255, 1);
+        -webkit-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+        -moz-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+        -o-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+        transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+    }
+
+.text {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 25px/1 "amaranth", Helvetica, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+    outline: none;
+}
+
+body {
+    background-image: url("//img/background65.png") repeating-linear-gradient();
+    background-attachment: fixed;
+}

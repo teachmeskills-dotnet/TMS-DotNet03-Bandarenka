@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+    @model FilmsViewModel
+
+    <div class=".container-sm">
+
+        <div class=".container-sm">
+
+            <h3 class="text-left">
+                Search movies
+            </h3>
+
+            <form method="post" asp-controller="Films" asp-action="SearchFilms">
+                <input type="text" name="search" class="qwerty marginsearch" placeholder="Search..." />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img src="@Model.Picture" />
+            </div>
+            <div class="col-sm">
+                <div class="line">
+                    <h3>   @Model.FilmsName </h3>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        @if (Model.Button)
+                        {
+
+                            <a class="delete" asp-controller="Films" asp-action="FilmsDel" asp-route-ID="@Model.Id">
+                                <img title="Удалить" src="~/img/delete.svg" />
+                            </a>
+
+                        }
+                    }
+                </div>
+
+                <div>
+
+                    <p>@Model.Duration</p>
+
+                    @if (User.Identity.IsAuthenticated)
+
+                    {
+                        @if (!Model.Button)
+                        {
+                            <div class="line">
+                                    <a>
+                                        <img title="Хочу посмотреть" src="~/img/invisible.svg" />
+                                    </a>
+
+                                    <a asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
+                                        <img title="Просмотрен" src="~/img/visibility.svg" />
+                                    </a>
+                                </div>
+
+                            <div class="line">
+                                @*<a class="delete" asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
+                                    <img title="Хочу посмотреть" src="~/img/invisible.svg" />
+                                </a>
+
+                                <a class="delete" asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
+                                    <img title="Просмотрен" src="~/img/visibility.svg" />
+                                </a>*@
+
+                                <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="1">
+                                    <button type="submit" class="btn btn-outline-success indent">I want to see</button>
+                                </form>
+                                <form asp-controller="Films" asp-action="FilmsAdd" asp-route-ID="@Model.Id" asp-route-status="2">
+                                    <button type="submit" class="btn btn-outline-success indent">Looked</button>
+                                </form>
+                            </div>
+
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

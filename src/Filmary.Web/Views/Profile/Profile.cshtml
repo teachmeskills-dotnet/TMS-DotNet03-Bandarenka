@@ -1,0 +1,15 @@
+﻿@model ProfileViewModel
+
+<h2>Edit profile</h2>
+<form asp-controller="Profile" asp-action="Profile">
+    <div>
+        <p>@Model.FullName</p>
+    </div>
+
+    <div>
+        <a btn btn-default asp-controller="Profile" asp-action="EditProfile">Change Full Name </a>
+    </div>
+    <div>
+        <a btn btn-default" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+    </div>
+</form>
